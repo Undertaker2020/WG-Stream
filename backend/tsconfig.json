@@ -12,8 +12,8 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["*"],
-      "@prisma/generated": ["@prisma/generated"],
-      "@prisma/generated/*": ["@prisma/generated/*"]
+      "@prisma/generated": ["prisma/generated"],
+      "@prisma/generated/*": ["prisma/generated/*"]
     },
     "incremental": true,
     "skipLibCheck": true,
@@ -21,6 +21,6 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": false,
     "strictBindCallApply": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
   }
 }
