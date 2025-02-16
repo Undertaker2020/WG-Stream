@@ -884,7 +884,7 @@ export namespace Prisma {
     displayName: string | null
     avatar: string | null
     bio: string | null
-    crearedAt: Date | null
+    createdAt: Date | null
     updatedAt: Date | null
   }
 
@@ -896,7 +896,7 @@ export namespace Prisma {
     displayName: string | null
     avatar: string | null
     bio: string | null
-    crearedAt: Date | null
+    createdAt: Date | null
     updatedAt: Date | null
   }
 
@@ -908,7 +908,7 @@ export namespace Prisma {
     displayName: number
     avatar: number
     bio: number
-    crearedAt: number
+    createdAt: number
     updatedAt: number
     _all: number
   }
@@ -922,7 +922,7 @@ export namespace Prisma {
     displayName?: true
     avatar?: true
     bio?: true
-    crearedAt?: true
+    createdAt?: true
     updatedAt?: true
   }
 
@@ -934,7 +934,7 @@ export namespace Prisma {
     displayName?: true
     avatar?: true
     bio?: true
-    crearedAt?: true
+    createdAt?: true
     updatedAt?: true
   }
 
@@ -946,7 +946,7 @@ export namespace Prisma {
     displayName?: true
     avatar?: true
     bio?: true
-    crearedAt?: true
+    createdAt?: true
     updatedAt?: true
     _all?: true
   }
@@ -1031,7 +1031,7 @@ export namespace Prisma {
     displayName: string
     avatar: string | null
     bio: string | null
-    crearedAt: Date
+    createdAt: Date
     updatedAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
@@ -1060,7 +1060,7 @@ export namespace Prisma {
     displayName?: boolean
     avatar?: boolean
     bio?: boolean
-    crearedAt?: boolean
+    createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1072,7 +1072,7 @@ export namespace Prisma {
     displayName?: boolean
     avatar?: boolean
     bio?: boolean
-    crearedAt?: boolean
+    createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1084,7 +1084,7 @@ export namespace Prisma {
     displayName?: boolean
     avatar?: boolean
     bio?: boolean
-    crearedAt?: boolean
+    createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
@@ -1096,11 +1096,11 @@ export namespace Prisma {
     displayName?: boolean
     avatar?: boolean
     bio?: boolean
-    crearedAt?: boolean
+    createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "username" | "displayName" | "avatar" | "bio" | "crearedAt" | "updatedAt", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password" | "username" | "displayName" | "avatar" | "bio" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
@@ -1113,7 +1113,7 @@ export namespace Prisma {
       displayName: string
       avatar: string | null
       bio: string | null
-      crearedAt: Date
+      createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
@@ -1545,7 +1545,7 @@ export namespace Prisma {
     readonly displayName: FieldRef<"User", 'String'>
     readonly avatar: FieldRef<"User", 'String'>
     readonly bio: FieldRef<"User", 'String'>
-    readonly crearedAt: FieldRef<"User", 'DateTime'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
     readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
     
@@ -1935,7 +1935,7 @@ export namespace Prisma {
     displayName: 'displayName',
     avatar: 'avatar',
     bio: 'bio',
-    crearedAt: 'crearedAt',
+    createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
@@ -2027,7 +2027,7 @@ export namespace Prisma {
     displayName?: StringFilter<"User"> | string
     avatar?: StringNullableFilter<"User"> | string | null
     bio?: StringNullableFilter<"User"> | string | null
-    crearedAt?: DateTimeFilter<"User"> | Date | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }
 
@@ -2039,7 +2039,7 @@ export namespace Prisma {
     displayName?: SortOrder
     avatar?: SortOrderInput | SortOrder
     bio?: SortOrderInput | SortOrder
-    crearedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -2054,7 +2054,7 @@ export namespace Prisma {
     displayName?: StringFilter<"User"> | string
     avatar?: StringNullableFilter<"User"> | string | null
     bio?: StringNullableFilter<"User"> | string | null
-    crearedAt?: DateTimeFilter<"User"> | Date | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
   }, "id" | "email" | "username">
 
@@ -2066,7 +2066,7 @@ export namespace Prisma {
     displayName?: SortOrder
     avatar?: SortOrderInput | SortOrder
     bio?: SortOrderInput | SortOrder
-    crearedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -2084,7 +2084,7 @@ export namespace Prisma {
     displayName?: StringWithAggregatesFilter<"User"> | string
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
     bio?: StringNullableWithAggregatesFilter<"User"> | string | null
-    crearedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
@@ -2096,7 +2096,7 @@ export namespace Prisma {
     displayName: string
     avatar?: string | null
     bio?: string | null
-    crearedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -2108,7 +2108,7 @@ export namespace Prisma {
     displayName: string
     avatar?: string | null
     bio?: string | null
-    crearedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -2120,7 +2120,7 @@ export namespace Prisma {
     displayName?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
-    crearedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -2132,7 +2132,7 @@ export namespace Prisma {
     displayName?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
-    crearedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -2144,7 +2144,7 @@ export namespace Prisma {
     displayName: string
     avatar?: string | null
     bio?: string | null
-    crearedAt?: Date | string
+    createdAt?: Date | string
     updatedAt?: Date | string
   }
 
@@ -2156,7 +2156,7 @@ export namespace Prisma {
     displayName?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
-    crearedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -2168,7 +2168,7 @@ export namespace Prisma {
     displayName?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     bio?: NullableStringFieldUpdateOperationsInput | string | null
-    crearedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
@@ -2226,7 +2226,7 @@ export namespace Prisma {
     displayName?: SortOrder
     avatar?: SortOrder
     bio?: SortOrder
-    crearedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -2238,7 +2238,7 @@ export namespace Prisma {
     displayName?: SortOrder
     avatar?: SortOrder
     bio?: SortOrder
-    crearedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
@@ -2250,7 +2250,7 @@ export namespace Prisma {
     displayName?: SortOrder
     avatar?: SortOrder
     bio?: SortOrder
-    crearedAt?: SortOrder
+    createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
