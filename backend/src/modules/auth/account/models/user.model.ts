@@ -1,31 +1,32 @@
 import {Field, ID, ObjectType} from "@nestjs/graphql";
+import type {User} from "@prisma/generated";
 
 @ObjectType()
-export class UserModel {
+export class UserModel implements User{
     @Field(() => ID)
-    id: string;
+    public id: string;
 
     @Field(() => String)
-    email: string;
+    public email: string;
 
     @Field(() => String)
-    password: string;
+    public password: string;
 
     @Field(() => String)
-    username: string;
+    public username: string;
 
     @Field(() => String)
-    displayName: string;
+    public displayName: string;
 
     @Field(() => String, {nullable: true})
-    avatar: string;
+    public avatar: string;
 
     @Field(() => String, {nullable: true})
-    bio: string;
+    public bio: string;
 
     @Field(() => Date)
-    createdAt: Date;
+    public createdAt: Date;
 
     @Field(() => Date)
-    updatedAt: Date;
+    public updatedAt: Date;
 }
