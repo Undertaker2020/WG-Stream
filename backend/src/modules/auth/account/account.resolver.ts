@@ -1,6 +1,6 @@
 import {Args, Mutation, Query, Resolver} from '@nestjs/graphql';
 import { AccountService } from './account.service';
-import {UserModel} from "@/src/modules/user.model";
+import {UserModel} from "@/src/modules/auth/account/models/user.model";
 import {CreateUserInput} from "@/src/modules/auth/account/inputs/create-user.input";
 import {Authorized} from "@/src/shared/decorators/authorized.decorator";
 import {Authorization} from "@/src/shared/decorators/auth.decorator";

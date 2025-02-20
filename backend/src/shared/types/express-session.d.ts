@@ -6,5 +6,6 @@ declare module 'express-session' {
         userId?: string;
         createdAt?: Date | string;
         metadata: SessionMetadata;
+        id: string
     }
 }

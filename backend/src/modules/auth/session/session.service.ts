@@ -29,11 +29,11 @@ export class SessionService {
             throw new NotFoundException("No user with this session");
         }
 
-        const keys = await this.redisService.get('*')
+        const keys = await this.redisService.keys('*')
 
         const userSessions = []
 
-        for (const key of keys!) {
+        for (const key of keys) {
             const sessionData = await this.redisService.get(key)
 
             if (sessionData) {
@@ -52,22 +52,19 @@ export class SessionService {
         userSessions.sort((a, b) => b.createdAt - a.createdAt)
 
         // @ts-ignore
-        return userSessions.filter(session => session.id === req.session.id);
+        return userSessions.filter(session => session.id === req.session.id || session.id !== req.session.id );
     }
 
     public async findCurrent(req: Request) {
         const sessionId = req.session.id;
 
-        const sessionData = await this.redisService.get(`${
-            this.configService
-                .getOrThrow<string>('SESSION_FOLDER')}:
-            ${sessionId}`);
+        const sessionData = await this.redisService.get(`${this.configService.getOrThrow<string>('SESSION_FOLDER')}${sessionId}`);
 
-        const session = JSON.parse(sessionData!);
-
+        // @ts-ignore
+        const session = JSON.parse(sessionData);
         return {
             ...session,
-            id: session.id,
+            id: sessionId,
         };
     }
 
@@ -126,9 +123,11 @@ export class SessionService {
     }
 
     public async clearSession(req: Request) {
-        req.res?.clearCookie(
+        // @ts-ignore
+        req.res.clearCookie(
             this.configService.getOrThrow<string>('SESSION_NAME')
         )
+        return true
     }
 
     public async removeSession(req: Request, id: string) {
@@ -136,10 +135,8 @@ export class SessionService {
             throw new ConflictException('Session does not exist')
         }
 
-        await this.redisService.del(`${
-            this.configService
-                .getOrThrow<string>('SESSION_FOLDER')}:
-                ${id}`)
+        await this.redisService.get(`${this.configService.getOrThrow<string>('SESSION_FOLDER')}${id}`);
+
         return true
     }
 }
