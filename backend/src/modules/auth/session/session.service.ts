@@ -1,7 +1,7 @@
 import {
+    BadRequestException,
     ConflictException,
     Injectable,
-    InternalServerErrorException,
     NotFoundException,
     UnauthorizedException
 } from '@nestjs/common';
@@ -12,6 +12,9 @@ import type {Request} from "express";
 import {ConfigService} from "@nestjs/config";
 import {getSessionMetadata} from "@/src/shared/utils/session-metadata.util";
 import {RedisService} from "@/src/core/redis/redis.service";
+import {SessionData} from "express-session";
+import {destroySession, saveSession} from "@/src/shared/utils/session.util";
+import {VerificationService} from "@/src/modules/auth/verification/verification.service";
 
 @Injectable()
 export class SessionService {
@@ -19,6 +22,7 @@ export class SessionService {
         private readonly prismaService: PrismaService,
         private readonly configService: ConfigService,
         private readonly redisService: RedisService,
+        private readonly verificationService: VerificationService,
     ) {
     }
 
@@ -31,7 +35,7 @@ export class SessionService {
 
         const keys = await this.redisService.keys('*')
 
-        const userSessions = []
+        const userSessions: SessionData[] = []
 
         for (const key of keys) {
             const sessionData = await this.redisService.get(key)
@@ -40,7 +44,6 @@ export class SessionService {
                 const session = JSON.parse(sessionData);
 
                 if (session.userId === userId) {
-                    // @ts-ignore
                     userSessions.push({
                         ...session,
                         id: key.split(':')[1]
@@ -51,7 +54,6 @@ export class SessionService {
         // @ts-ignore
         userSessions.sort((a, b) => b.createdAt - a.createdAt)
 
-        // @ts-ignore
         return userSessions.filter(session => session.id === req.session.id || session.id !== req.session.id );
     }
 
@@ -60,8 +62,8 @@ export class SessionService {
 
         const sessionData = await this.redisService.get(`${this.configService.getOrThrow<string>('SESSION_FOLDER')}${sessionId}`);
 
-        // @ts-ignore
-        const session = JSON.parse(sessionData);
+
+        const session = JSON.parse(sessionData!);
         return {
             ...session,
             id: sessionId,
@@ -84,47 +86,28 @@ export class SessionService {
         }
 
         const isValidPassword = await verify(user.password, password);
+
         if (!isValidPassword) {
             throw new UnauthorizedException('Passwords do not match');
         }
 
+        if(!user.isEmailVerified){
+            await this.verificationService.sendVerificationToken(user);
+
+            throw new BadRequestException("Account not verified. Please check your email for confirmation");
+        }
+
         const metadata = getSessionMetadata(req, userAgent);
 
-        return new Promise((resolve, reject) => {
-            req.session.createdAt = new Date();
-            req.session.userId = user.id
-            req.session.metadata = metadata;
-
-            req.session.save(err => {
-                if (err) {
-                    return reject(
-                        new InternalServerErrorException('Error creating session')
-                    )
-                }
-                resolve(user)
-            })
-        });
+        return saveSession(req, user, metadata);
     }
 
     public async logout(req: Request) {
-        return new Promise((resolve, reject) => {
-            req.session.destroy(err => {
-                if (err) {
-                    return reject(
-                        new InternalServerErrorException('Error deleting session')
-                    )
-                }
-                req.res?.clearCookie(
-                    this.configService.getOrThrow<string>('SESSION_NAME')
-                )
-                resolve(true)
-            })
-        });
+       return destroySession(req, this.configService)
     }
 
     public async clearSession(req: Request) {
-        // @ts-ignore
-        req.res.clearCookie(
+        req.res?.clearCookie(
             this.configService.getOrThrow<string>('SESSION_NAME')
         )
         return true
@@ -132,10 +115,10 @@ export class SessionService {
 
     public async removeSession(req: Request, id: string) {
         if(req.session.id === id) {
-            throw new ConflictException('Session does not exist')
+            throw new ConflictException('The current session cannot be deleted.')
         }
 
-        await this.redisService.get(`${this.configService.getOrThrow<string>('SESSION_FOLDER')}${id}`);
+        await this.redisService.del(`${this.configService.getOrThrow<string>('SESSION_FOLDER')}${id}`);
 
         return true
     }
