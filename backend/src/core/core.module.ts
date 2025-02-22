@@ -8,6 +8,8 @@ import {getGraphQlConfig} from "@/src/core/config/graphql.config";
 import {RedisModule} from './redis/redis.module';
 import {AccountModule} from "@/src/modules/auth/account/account.module";
 import {SessionModule} from "@/src/modules/auth/session/session.module";
+import {VerificationModule} from "@/src/modules/auth/verification/verification.module";
+import {MailModule} from "@/src/modules/libs/mail/mail.module";
 
 @Module({
     imports: [
@@ -23,8 +25,10 @@ import {SessionModule} from "@/src/modules/auth/session/session.module";
         }),
         PrismaModule,
         RedisModule,
+        MailModule,
         AccountModule,
-        SessionModule
+        SessionModule,
+        VerificationModule
     ],
 })
 export class CoreModule {
