@@ -3,6 +3,8 @@ import {MailerService} from "@nestjs-modules/mailer";
 import {ConfigService} from "@nestjs/config";
 import {VerificationTemplate} from "@/src/modules/libs/mail/templates/verification.template";
 import {render} from "@react-email/components";
+import {PasswordRecoveryTemplate} from "@/src/modules/libs/mail/templates/password-recovery.template";
+import type {SessionMetadata} from "@/src/shared/types/session-metadata.types";
 
 @Injectable()
 export class MailService {
@@ -18,8 +20,16 @@ export class MailService {
         return this.sendMail(email, 'Verification Token', html)
     }
 
+    public async sendPasswordResetToken(email: string, token: string, metadata: SessionMetadata){
+        const domain =  this.configService.getOrThrow<string>('ALLOWED_ORIGIN')
+        const html = await render(PasswordRecoveryTemplate({domain, token, metadata}))
+
+        return this.sendMail(email, 'Reset password', html)
+    }
+
     private sendMail(email: string, subject: string, html: string) {
         return this.mailerService.sendMail({
+            from: 'WG-Stream',
             to: email,
             subject,
             html

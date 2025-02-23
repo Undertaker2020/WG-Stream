@@ -25,9 +25,7 @@ export function VerificationTemplate({domain, token}: VerificationTemplateProps)
                             To confirm your email address, please follow this link:
                         </Text>
                         <Link href={verificationLink}
-                              className='inline-flex justify-center items-center rounded-md
-                                            text-sm font-medium text-[#18B9AE]
-                                            px-5 py-2'>
+                              className='inline-flex justify-center items-center rounded-full text-sm font-medium text-white bg-[#18B9AE] px-5 py-2'>
                             Confirm email
                         </Link>
                     </Section>
