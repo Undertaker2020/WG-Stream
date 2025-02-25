@@ -15,6 +15,8 @@ import {RedisService} from "@/src/core/redis/redis.service";
 import {SessionData} from "express-session";
 import {destroySession, saveSession} from "@/src/shared/utils/session.util";
 import {VerificationService} from "@/src/modules/auth/verification/verification.service";
+import {TOTP} from "otpauth";
+import {UserModel} from "@/src/modules/auth/account/models/user.model";
 
 @Injectable()
 export class SessionService {
@@ -71,7 +73,7 @@ export class SessionService {
     }
 
     public async login(req: Request, input: LoginInput, userAgent: string) {
-        const {login, password} = input;
+        const {login, password, pin} = input;
 
         const user = await this.prismaService.user.findFirst({
             where: {
@@ -80,7 +82,7 @@ export class SessionService {
                     {email: {equals: login}}
                 ]
             }
-        })
+        }) as UserModel;
         if (!user) {
             throw new NotFoundException('Invalid login credentials');
         }
@@ -97,8 +99,27 @@ export class SessionService {
             throw new BadRequestException("Account not verified. Please check your email for confirmation");
         }
 
-        const metadata = getSessionMetadata(req, userAgent);
+        if (user.isTotpEnabled) {
+            if (!pin) {
+                return {
+                    message: 'A code is required to complete the authorization'
+                }
+            }
+            const totp = new TOTP({
+                issuer: 'WG-Stream',
+                label: `${user.email}`,
+                algorithm: 'SHA1',
+                digits: 6,
+                secret: user.totpSecret,
+            })
 
+            const delta = totp.validate({token: pin})
+            if (delta === null) {
+                throw new BadRequestException('Totp is invalid')
+            }
+        }
+
+        const metadata = getSessionMetadata(req, userAgent);
         return saveSession(req, user, metadata);
     }
 
