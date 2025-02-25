@@ -20,7 +20,7 @@ export function saveSession(
                     new InternalServerErrorException('Error creating session')
                 )
             }
-            resolve(user)
+            resolve({user})
         })
     });
 }
