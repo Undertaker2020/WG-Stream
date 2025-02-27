@@ -23,11 +23,11 @@ export function DeactivateTemplate({token, metadata}: DeactivateTemplateProps){
                     </Text>
                 </Section>
 
-                <Section className='bg-gray-100 rounded-lg shadow-md'>
-                    <Heading className='text-2xl text-black font-semibold'>
+                <Section className='bg-gray-100 text-center mb-8 rounded-lg shadow-md'>
+                    <Heading className='text-2xl text-black font-semibold text-[#18B9AE]'>
                         Confirmation Code:
                     </Heading>
-                    <Heading className='text-3xl text-black font-semibold'>
+                    <Heading className='text-3xl text-black font-semibold tracking-widest'>
                         {token}
                     </Heading>
                     <Text className='text-black'>
@@ -35,7 +35,7 @@ export function DeactivateTemplate({token, metadata}: DeactivateTemplateProps){
                     </Text>
                 </Section>
 
-                <Section className='bg-gray-100 rounded-lg p-6 mb-6'>
+                <Section className='bg-gray-100 rounded-lg shadow-md p-6 mb-6'>
                     <Heading
                         className='text-xl font-semibold text-[#18B9AE]'
                     >
