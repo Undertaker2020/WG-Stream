@@ -9,20 +9,22 @@ datasource db {
 }
 
 model User {
-  id              String   @id @default(uuid())
-  email           String   @unique
+  id              String    @id @default(uuid())
+  email           String    @unique
   password        String
-  username        String   @unique
-  displayName     String   @map("display_name")
+  username        String    @unique
+  displayName     String    @map("display_name")
   avatar          String?
   bio             String?
-  isVerified      Boolean  @default(false) @map("is_verified")
-  isEmailVerified Boolean  @default(false) @map("is_email_verified")
-  isTotpEnabled   Boolean  @default(false) @map("is_totp_enabled")
-  totpSecret      String?  @map("totp_secret")
+  isVerified      Boolean   @default(false) @map("is_verified")
+  isEmailVerified Boolean   @default(false) @map("is_email_verified")
+  isTotpEnabled   Boolean   @default(false) @map("is_totp_enabled")
+  totpSecret      String?   @map("totp_secret")
+  isDeactivated   Boolean   @default(false) @map("is_deactivated")
+  deactivatedAt   DateTime? @map("deactivated_at")
   tokens          Token[]
-  createdAt       DateTime @default(now()) @map("created_at")
-  updatedAt       DateTime @updatedAt @map("updated_at")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
 
   @@map("users")
 }
@@ -46,6 +48,7 @@ model Token {
 enum TokenType {
   EMAIL_VERIFY
   PASSWORD_RESET
+  DEACTIVATE_ACCOUNT
 
   @@map("token_types")
 }

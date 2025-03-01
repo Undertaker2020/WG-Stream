@@ -1,10 +1,12 @@
-import { Injectable } from '@nestjs/common';
+import {Injectable} from '@nestjs/common';
 import {MailerService} from "@nestjs-modules/mailer";
 import {ConfigService} from "@nestjs/config";
 import {VerificationTemplate} from "@/src/modules/libs/mail/templates/verification.template";
 import {render} from "@react-email/components";
 import {PasswordRecoveryTemplate} from "@/src/modules/libs/mail/templates/password-recovery.template";
 import type {SessionMetadata} from "@/src/shared/types/session-metadata.types";
+import {DeactivateTemplate} from "@/src/modules/libs/mail/templates/deactivate.template";
+import {AccountDeletionTemplate} from "@/src/modules/libs/mail/templates/account-deletion.template";
 
 @Injectable()
 export class MailService {
@@ -25,6 +27,19 @@ export class MailService {
         const html = await render(PasswordRecoveryTemplate({domain, token, metadata}))
 
         return this.sendMail(email, 'Reset password', html)
+    }
+
+    public async sendDeactivateToken(email: string, token: string, metadata: SessionMetadata){
+        const html = await render(DeactivateTemplate({token, metadata}))
+
+        return this.sendMail(email, 'Deactivate account', html)
+    }
+
+    public async sendAccountDeletion(email: string) {
+        const domain = this.configService.getOrThrow<string>('ALLOWED_ORIGIN')
+        const html = await render(AccountDeletionTemplate({domain}))
+
+        return this.sendMail(email, 'Account Deleted', html)
     }
 
     private sendMail(email: string, subject: string, html: string) {

@@ -12,6 +12,8 @@ import {VerificationModule} from "@/src/modules/auth/verification/verification.m
 import {MailModule} from "@/src/modules/libs/mail/mail.module";
 import {PasswordRecoverModule} from "@/src/modules/auth/password-recover/password-recover.module";
 import {TotpModule} from "@/src/modules/auth/totp/totp.module";
+import {DeactivateModule} from "@/src/modules/auth/deactivate/deactivate.module";
+import {CronModule} from "@/src/modules/cron/cron.module";
 
 @Module({
     imports: [
@@ -32,7 +34,9 @@ import {TotpModule} from "@/src/modules/auth/totp/totp.module";
         SessionModule,
         VerificationModule,
         PasswordRecoverModule,
-        TotpModule
+        TotpModule,
+        DeactivateModule,
+        CronModule
     ],
 })
 export class CoreModule {
