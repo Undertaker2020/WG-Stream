@@ -14,6 +14,7 @@ import {PasswordRecoverModule} from "@/src/modules/auth/password-recover/passwor
 import {TotpModule} from "@/src/modules/auth/totp/totp.module";
 import {DeactivateModule} from "@/src/modules/auth/deactivate/deactivate.module";
 import {CronModule} from "@/src/modules/cron/cron.module";
+import {StorageModule} from "@/src/modules/libs/storage/storage.module";
 
 @Module({
     imports: [
@@ -36,7 +37,8 @@ import {CronModule} from "@/src/modules/cron/cron.module";
         PasswordRecoverModule,
         TotpModule,
         DeactivateModule,
-        CronModule
+        CronModule,
+        StorageModule
     ],
 })
 export class CoreModule {
