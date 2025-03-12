@@ -9,24 +9,42 @@ datasource db {
 }
 
 model User {
-  id              String    @id @default(uuid())
-  email           String    @unique
+  id              String       @id @default(uuid())
+  email           String       @unique
   password        String
-  username        String    @unique
-  displayName     String    @map("display_name")
+  username        String       @unique
+  displayName     String       @map("display_name")
   avatar          String?
   bio             String?
-  isVerified      Boolean   @default(false) @map("is_verified")
-  isEmailVerified Boolean   @default(false) @map("is_email_verified")
-  isTotpEnabled   Boolean   @default(false) @map("is_totp_enabled")
-  totpSecret      String?   @map("totp_secret")
-  isDeactivated   Boolean   @default(false) @map("is_deactivated")
-  deactivatedAt   DateTime? @map("deactivated_at")
+  isVerified      Boolean      @default(false) @map("is_verified")
+  isEmailVerified Boolean      @default(false) @map("is_email_verified")
+  isTotpEnabled   Boolean      @default(false) @map("is_totp_enabled")
+  totpSecret      String?      @map("totp_secret")
+  isDeactivated   Boolean      @default(false) @map("is_deactivated")
+  deactivatedAt   DateTime?    @map("deactivated_at")
   tokens          Token[]
-  createdAt       DateTime  @default(now()) @map("created_at")
-  updatedAt       DateTime  @updatedAt @map("updated_at")
+  socialLinks     SocialLink[]
+  createdAt       DateTime     @default(now()) @map("created_at")
+  updatedAt       DateTime     @updatedAt @map("updated_at")
+  stream          Stream?
 
   @@map("users")
+}
+
+model SocialLink {
+  id String @id @default(uuid())
+
+  title    String
+  url      String
+  position Int
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String? @map("user_id")
+
+  @@map("social_links")
 }
 
 model Token {
@@ -43,6 +61,25 @@ model Token {
   userId String? @map("user_id")
 
   @@map("tokens")
+}
+
+model Stream {
+  id String @id @default(uuid())
+
+  title        String
+  thumbnailUrl String? @map("thumbnail_url")
+
+  ingressId String? @unique @map("ingress_id")
+  serverUrl String? @map("server_url")
+  streamKey String? @map("stream_key")
+
+  isLive Boolean @default(false) @map("is_live")
+
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String? @unique @map("user_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 enum TokenType {
