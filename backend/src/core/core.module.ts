@@ -20,6 +20,7 @@ import {StreamModule} from "@/src/modules/stream/stream.module";
 import {LiveKitModule} from "@/src/modules/libs/livekit/livekit.module";
 import {getLiveKitConfig} from "@/src/core/config/livekit.config";
 import {IngressModule} from "@/src/modules/stream/ingress/ingress.module";
+import {WebhookModule} from "@/src/modules/webhook/webhook.module";
 
 @Module({
     imports: [
@@ -53,6 +54,7 @@ import {IngressModule} from "@/src/modules/stream/ingress/ingress.module";
         StreamModule,
         LiveKitModule,
         IngressModule,
+        WebhookModule
     ],
 })
 export class CoreModule {
