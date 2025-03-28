@@ -1,4 +1,4 @@
-import {BadRequestException, Injectable} from '@nestjs/common';
+import {BadRequestException, Injectable, NotFoundException} from '@nestjs/common';
 import {PrismaService} from "@/src/core/prisma/prisma.service";
 import {FiltersInput} from "@/src/modules/stream/inputs/filters.input";
 import type {Prisma, User} from "@prisma/generated";
@@ -6,12 +6,16 @@ import {ChangeStreamInfoInput} from "@/src/modules/stream/inputs/change-stream-i
 import * as Upload from 'graphql-upload/Upload.js'
 import * as sharp from "sharp";
 import {StorageService} from "@/src/modules/libs/storage/storage.service";
+import {GenerateStreamTokenInput} from "@/src/modules/stream/inputs/generate-stream-token.input";
+import {ConfigService} from "@nestjs/config";
+import {AccessToken} from "livekit-server-sdk";
 
 @Injectable()
 export class StreamService {
     public constructor(
         private readonly prismaService: PrismaService,
         private readonly storageService: StorageService,
+        private readonly configService: ConfigService,
     ) {}
 
     public async findAll(input: FiltersInput = {}) {
@@ -30,7 +34,8 @@ export class StreamService {
                 ...whereClause,
             },
             include: {
-                user: true
+                user: true,
+                category: true
             },
             orderBy: {
                 createdAt: 'desc'
@@ -64,7 +69,8 @@ export class StreamService {
                 }
             },
             include: {
-                user: true
+                user: true,
+                category: true
             },
             take: total,
             skip: 0,
@@ -81,7 +87,12 @@ export class StreamService {
                 userId: user.id
             },
             data: {
-                title
+                title,
+                category: {
+                    connect: {
+                        id: categoryId
+                    }
+                }
             }
         })
 
@@ -181,6 +192,53 @@ export class StreamService {
                 }
             ]
         }
+    }
+
+    public async generateToken(input: GenerateStreamTokenInput){
+        const { userId, channelId } = input;
+
+        let self: {id: string; username: string};
+
+        const user = await this.prismaService.user.findUnique({
+            where: {
+                id: userId,
+            }
+        })
+
+        if(user){
+            self = {id:user.id, username:user.username}
+        } else {
+            self = {id: userId, username: `Viewer ${Math.floor(Math.random() * 100000)}`};
+        }
+
+        const channel = await this.prismaService.user.findUnique({
+            where: {
+                id: channelId,
+            }
+        })
+
+        if(!channel){
+            throw new NotFoundException('Channel does not exist')
+        }
+        
+        const isHost = self.id === channel.id
+
+        const token = new AccessToken(
+            this.configService.getOrThrow<string>('LIVEKIT_API_KEY'),
+            this.configService.getOrThrow<string>('LIVEKIT_API_SECRET'),
+            {
+                identity: isHost ? `Host-${self.id}` : self.id.toString(),
+                name: self.username,
+            }
+        )
+
+        token.addGrant({
+            room: channel.id,
+            roomJoin: true,
+            canPublish: false
+        })
+
+        return { token: token.toJwt() }
     }
 
     private async findByUserId(user: User) {
