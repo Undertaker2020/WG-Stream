@@ -28,6 +28,8 @@ model User {
   updatedAt       DateTime      @updatedAt @map("updated_at")
   stream          Stream?
   chatMessages    ChatMessage[]
+  followers       Follow[]      @relation(name: "followers")
+  followings      Follow[]      @relation(name: "followings")
 
   @@map("users")
 }
@@ -121,6 +123,24 @@ model ChatMessage {
   streamId  String   @map("stream_id")
 
   @@map("chat_messages")
+}
+
+model Follow {
+  id String @id @default(uuid())
+
+  follower   User   @relation(name: "followers", fields: [followerId], references: [id], onDelete: Cascade)
+  followerId String @map("follower_id")
+
+  following   User   @relation(name: "followings", fields: [followingId], references: [id], onDelete: Cascade)
+  followingId String @map("following_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@unique([followerId, followingId])
+  @@index([followerId])
+  @@index([followingId])
+  @@map("follows")
 }
 
 enum TokenType {
