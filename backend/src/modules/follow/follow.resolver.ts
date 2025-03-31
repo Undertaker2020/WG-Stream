@@ -3,7 +3,7 @@ import {FollowService} from './follow.service';
 import {FollowModel} from "@/src/modules/follow/models/follow.model";
 import {Authorization} from "@/src/shared/decorators/auth.decorator";
 import {Authorized} from "@/src/shared/decorators/authorized.decorator";
-import {User} from "@prisma/generated";
+import type {User} from "@prisma/generated";
 
 @Resolver('Follow')
 export class FollowResolver {

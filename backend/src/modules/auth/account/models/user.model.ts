@@ -3,6 +3,8 @@ import type {User} from "@prisma/generated";
 import {SocialLinkModel} from "@/src/modules/auth/profile/models/social-link.model";
 import {StreamModel} from "@/src/modules/stream/models/stream.model";
 import {FollowModel} from "@/src/modules/follow/models/follow.model";
+import {NotificationModel} from "@/src/modules/notification/models/notification.model";
+import {NotificationSettingsModel} from "@/src/modules/notification/models/notification-settings.model";
 
 @ObjectType()
 export class UserModel implements User{
@@ -26,6 +28,9 @@ export class UserModel implements User{
 
     @Field(() => String, {nullable: true})
     public bio: string;
+
+    @Field(() => String, {nullable: true})
+    public telegramId: string;
 
     @Field(() => Boolean)
     public isVerified: boolean;
@@ -56,6 +61,12 @@ export class UserModel implements User{
 
     @Field(()=> [FollowModel])
     public followings: FollowModel[];
+
+    @Field(()=> [NotificationModel])
+    public notifications: NotificationModel[];
+
+    @Field(()=> NotificationSettingsModel)
+    public notificationSettings: NotificationSettingsModel;
 
     @Field(() => Date)
     public createdAt: Date;
