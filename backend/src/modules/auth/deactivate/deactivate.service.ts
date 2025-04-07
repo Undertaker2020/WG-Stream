@@ -9,6 +9,7 @@ import {generateToken} from "@/src/shared/utils/generate-token.util";
 import {getSessionMetadata} from "@/src/shared/utils/session-metadata.util";
 import {DeactivateAccountInput} from "@/src/modules/auth/deactivate/inputs/deactivate-account.input";
 import {verify} from "argon2";
+import {TelegramService} from "@/src/modules/libs/telegram/telegram.service";
 
 @Injectable()
 export class DeactivateService {
@@ -16,6 +17,7 @@ export class DeactivateService {
         private readonly prismaService: PrismaService,
         private readonly configService: ConfigService,
         private readonly mailService: MailService,
+        private readonly telegramService: TelegramService,
     ) {
     }
 
@@ -101,6 +103,18 @@ export class DeactivateService {
             deactivateToken.token,
             metadata
         )
+
+        if (deactivateToken.user?.notificationSettings?.telegramNotifications && deactivateToken.user.telegramId) {
+            await this.telegramService.sendDeactivateToken(
+                deactivateToken.user.telegramId,
+                deactivateToken.token,
+                metadata
+            )
+
+            await this.telegramService.sendAccountDeletion(
+                deactivateToken.user.telegramId
+            )
+        }
 
         return true;
     }

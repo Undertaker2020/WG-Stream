@@ -2,12 +2,14 @@ import {ConflictException, Injectable, NotFoundException} from '@nestjs/common';
 import {PrismaService} from "@/src/core/prisma/prisma.service";
 import {User} from "@prisma/generated";
 import {NotificationService} from "@/src/modules/notification/notification.service";
+import {TelegramService} from "@/src/modules/libs/telegram/telegram.service";
 
 @Injectable()
 export class FollowService {
     public constructor(
         private readonly prismaService: PrismaService,
-        private readonly notificationService: NotificationService
+        private readonly notificationService: NotificationService,
+        private readonly telegramService: TelegramService,
     ) {}
 
     public async findMyFollowers(user: User){
@@ -88,9 +90,14 @@ export class FollowService {
                 follow.following.id,
                 follow.follower
             )
-
         }
 
+        if (follow.following.notificationSettings?.telegramNotifications && follow.following.telegramId) {
+            await this.telegramService.sendNewFollowing(
+                follow.following.telegramId,
+                follow.follower
+            )
+        }
         return true
     }
 

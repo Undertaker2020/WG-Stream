@@ -8,12 +8,14 @@ import {TokenType} from "@prisma/generated";
 import {getSessionMetadata} from "@/src/shared/utils/session-metadata.util";
 import {NewPasswordInput} from "@/src/modules/auth/password-recover/inputs/new-password.input";
 import {hash} from "argon2";
+import {TelegramService} from "@/src/modules/libs/telegram/telegram.service";
 
 @Injectable()
 export class PasswordRecoverService {
     public constructor(
         private readonly prismaService: PrismaService,
         private readonly mailService: MailService,
+        private readonly telegramService: TelegramService,
     ) {}
 
     public async resetPassword(
@@ -27,7 +29,10 @@ export class PasswordRecoverService {
             where: {
                 email,
             },
-        })
+            include: {
+                notificationSettings: true
+            }
+        });
 
         if (!user) {
             throw new NotAcceptableException('User does not exist');
@@ -46,6 +51,14 @@ export class PasswordRecoverService {
             resetToken.token,
             metadata
         );
+
+        if (resetToken.user?.notificationSettings?.telegramNotifications && resetToken.user.telegramId) {
+            await this.telegramService.sendPasswordResetToken(
+                resetToken.user.telegramId,
+                resetToken.token,
+                metadata
+            )
+        }
 
         return true
     }
