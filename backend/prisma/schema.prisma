@@ -16,7 +16,7 @@ model User {
   displayName          String                @map("display_name")
   avatar               String?
   bio                  String?
-  telegramId           String?               @map("telegram_id")
+  telegramId           String?               @unique @map("telegram_id")
   isVerified           Boolean               @default(false) @map("is_verified")
   isEmailVerified      Boolean               @default(false) @map("is_email_verified")
   isTotpEnabled        Boolean               @default(false) @map("is_totp_enabled")
