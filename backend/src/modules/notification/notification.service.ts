@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import {PrismaService} from "@/src/core/prisma/prisma.service";
-import {NotificationType, TokenType, User} from "@prisma/generated";
+import {NotificationType, type SponsorshipPlan, TokenType, type User} from "@prisma/generated";
 import {ChangeNotificationsSettingsInput} from "@/src/modules/notification/inputs/change-notifications-settings.input";
 import {generateToken} from "@/src/shared/utils/generate-token.util";
 
@@ -141,26 +141,26 @@ export class NotificationService {
         return notification
     }
 
-    // public async createNewSponsorship(
-    //     userId: string,
-    //     plan: SponsorshipPlan,
-    //     sponsor: User
-    // ) {
-    //     const notification = await this.prismaService.notification.create({
-    //         data: {
-    //             message: `<b className='font-medium'>You have a new sponsor!</b>
-    //             <p><a href='/${sponsor.username}' className='font-semibold'>${sponsor.displayName}</a> became your sponsor by choosing the <strong>${plan.title}</strong> plan.</p>`,
-    //             type: NotificationType.NEW_SPONSORSHIP,
-    //             user: {
-    //                 connect: {
-    //                     id: userId
-    //                 }
-    //             }
-    //         }
-    //     })
-    //
-    //     return notification
-    // }
+    public async createNewSponsorship(
+        userId: string,
+        plan: SponsorshipPlan,
+        sponsor: User
+    ) {
+        const notification = await this.prismaService.notification.create({
+            data: {
+                message: `<b className='font-medium'>You have a new sponsor!</b>
+                <p><a href='/${sponsor.username}' className='font-semibold'>${sponsor.displayName}</a> became your sponsor by choosing the <strong>${plan.title}</strong> plan.</p>`,
+                type: NotificationType.NEW_SPONSORSHIP,
+                user: {
+                    connect: {
+                        id: userId
+                    }
+                }
+            }
+        })
+
+        return notification
+    }
 
     public async createEnableTwoFactor(userId: string) {
         const notification = await this.prismaService.notification.create({

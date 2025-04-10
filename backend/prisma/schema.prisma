@@ -9,30 +9,36 @@ datasource db {
 }
 
 model User {
-  id                   String                @id @default(uuid())
-  email                String                @unique
-  password             String
-  username             String                @unique
-  displayName          String                @map("display_name")
-  avatar               String?
-  bio                  String?
-  telegramId           String?               @unique @map("telegram_id")
-  isVerified           Boolean               @default(false) @map("is_verified")
-  isEmailVerified      Boolean               @default(false) @map("is_email_verified")
-  isTotpEnabled        Boolean               @default(false) @map("is_totp_enabled")
-  totpSecret           String?               @map("totp_secret")
-  isDeactivated        Boolean               @default(false) @map("is_deactivated")
-  deactivatedAt        DateTime?             @map("deactivated_at")
-  tokens               Token[]
-  socialLinks          SocialLink[]
-  createdAt            DateTime              @default(now()) @map("created_at")
-  updatedAt            DateTime              @updatedAt @map("updated_at")
-  stream               Stream?
-  chatMessages         ChatMessage[]
-  followers            Follow[]              @relation(name: "followers")
-  followings           Follow[]              @relation(name: "followings")
-  notifications        Notification[]
-  notificationSettings NotificationSettings?
+  id              String       @id @default(uuid())
+  email           String       @unique
+  password        String
+  username        String       @unique
+  displayName     String       @map("display_name")
+  avatar          String?
+  bio             String?
+  telegramId      String?      @unique @map("telegram_id")
+  isVerified      Boolean      @default(false) @map("is_verified")
+  isEmailVerified Boolean      @default(false) @map("is_email_verified")
+  isTotpEnabled   Boolean      @default(false) @map("is_totp_enabled")
+  totpSecret      String?      @map("totp_secret")
+  isDeactivated   Boolean      @default(false) @map("is_deactivated")
+  deactivatedAt   DateTime?    @map("deactivated_at")
+  tokens          Token[]
+  socialLinks     SocialLink[]
+
+  stream                   Stream?
+  chatMessages             ChatMessage[]
+  followers                Follow[]                  @relation(name: "followers")
+  followings               Follow[]                  @relation(name: "followings")
+  notifications            Notification[]
+  notificationSettings     NotificationSettings?
+  transactions             Transaction[]
+  sponsorshipPlans         SponsorshipPlan[]
+  sponsorshipSubscriptions SponsorshipSubscription[] @relation(name: "sponsorship_subscriptions")
+  sponsors                 SponsorshipSubscription[] @relation(name: "sponsors")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("users")
 }
@@ -177,6 +183,64 @@ model NotificationSettings {
   @@map("notification_settings")
 }
 
+model Transaction {
+  id String @id @default(uuid())
+
+  amount   Float
+  currency String
+
+  stripeSubscriptionId String?           @map("stripe_subscription_id")
+  status               TransactionStatus @default(PENDING)
+
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String? @map("user_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("transactions")
+}
+
+model SponsorshipPlan {
+  id String @id @default(uuid())
+
+  title       String
+  description String?
+  price       Float
+
+  stripeProductId String @map("stripe_product_id")
+  stripePlanId    String @map("stripe_plan_id")
+
+  channel   User?   @relation(fields: [channelId], references: [id], onDelete: Cascade)
+  channelId String? @map("user_id")
+
+  createdAt               DateTime                  @default(now()) @map("created_at")
+  updatedAt               DateTime                  @updatedAt @map("updated_at")
+  SponsorshipSubscription SponsorshipSubscription[]
+
+  @@map("sponsorship_plans")
+}
+
+model SponsorshipSubscription {
+  id String @id @default(uuid())
+
+  expiresAt DateTime @map("expires_at")
+
+  plan   SponsorshipPlan? @relation(fields: [planId], references: [id], onDelete: Cascade)
+  planId String?          @map("plan_id")
+
+  user   User?   @relation(name: "sponsorship_subscriptions", fields: [userId], references: [id], onDelete: Cascade)
+  userId String? @map("user_id")
+
+  channel   User?   @relation(name: "sponsors", fields: [channelId], references: [id], onDelete: Cascade)
+  channelId String? @map("channel_id")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("sponsorship_subscriptions")
+}
+
 enum TokenType {
   EMAIL_VERIFY
   PASSWORD_RESET
@@ -194,4 +258,13 @@ enum NotificationType {
   VERIFIED_CHANNEL
 
   @@map("notification_types")
+}
+
+enum TransactionStatus {
+  PENDING
+  SUCCESS
+  FAILED
+  EXPIRED
+
+  @@map("transaction_statuses")
 }
