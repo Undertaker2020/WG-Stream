@@ -1,4 +1,4 @@
-import type { User } from '@/prisma/generated' //SponsorshipPlan
+import type { User , SponsorshipPlan } from '@/prisma/generated'
 import type { SessionMetadata } from '@/src/shared/types/session-metadata.types'
 
 export const MESSAGES = {
@@ -64,10 +64,10 @@ export const MESSAGES = {
         `Watch now: <a href="https://wg-stream.com/${channel.username}">Go to stream</a>`,
     newFollowing: (follower: User, followersCount: number) =>
         `<b>You have a new follower!</b>\n\nIt's <a href="https://wg-stream.com/${follower.username}">${follower.displayName}</a>\n\nYour total channel followers: ${followersCount}`,
-    newSponsorship: (plan: any, sponsor: User) =>
+    newSponsorship: (plan: SponsorshipPlan, sponsor: User) =>
         `<b>🎉 New Sponsorship!</b>\n\n` +
         `You've received a new sponsorship for the <b>${plan.title}</b> plan.\n` +
-        `💰 Amount: <b>${plan.price} ₴</b>\n` +
+        `💰 Amount: <b>${plan.price} $</b>\n` +
         `👤 Sponsor: <a href="https://wg-stream.com/${sponsor.username}">${sponsor.displayName}</a>\n` +
         `📅 Date: <b>${new Date().toLocaleDateString()} at ${new Date().toLocaleTimeString()}</b>`,
     enableTwoFactor:
@@ -75,7 +75,7 @@ export const MESSAGES = {
         `Enable two-factor authentication in your <a href="https://wg-stream.com/dashboard/settings">account settings</a>.`,
     verifyChannel:
         `<b>🎉 Congratulations! Your channel is now verified</b>\n\n` +
-        `We're happy to inform you that your channel has been verified and you now have an official badge.\n\n` +
+        `We're happy to inform you that your channel has been verified, and you now have an official badge.\n\n` +
         `Verification confirms your channel’s authenticity and increases viewer trust.\n\n` +
         `Thank you for being with us and growing your channel with WG-Stream!`
 }

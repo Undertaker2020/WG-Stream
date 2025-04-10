@@ -3,7 +3,7 @@ import {Action, Command, Ctx, Start, Update} from "nestjs-telegraf";
 import {Context, Telegraf} from "telegraf";
 import {PrismaService} from "@/src/core/prisma/prisma.service";
 import {ConfigService} from "@nestjs/config";
-import {TokenType, type User} from "@prisma/generated";
+import {type SponsorshipPlan, TokenType, type User} from "@prisma/generated";
 import {MESSAGES} from "@/src/modules/libs/telegram/telegram.messages";
 import {BUTTONS} from "@/src/modules/libs/telegram/telegram.buttons";
 import {SessionMetadata} from "@/src/shared/types/session-metadata.types";
@@ -163,6 +163,18 @@ export class TelegramService extends Telegraf {
         await this.telegram.sendMessage(
             chadId,
             MESSAGES.newFollowing(follower, user!.followings.length),
+            {parse_mode: 'HTML'}
+        );
+    }
+
+    public async sendNewSponsorship(
+        chatId: string,
+        plan: SponsorshipPlan,
+        sponsor: User
+    ) {
+        await this.telegram.sendMessage(
+            chatId,
+            MESSAGES.newSponsorship(plan, sponsor),
             {parse_mode: 'HTML'}
         );
     }
