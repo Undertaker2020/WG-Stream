@@ -179,6 +179,22 @@ export class TelegramService extends Telegraf {
         );
     }
 
+    public async sendEnableTwoFactor(chadId: string) {
+        await this.telegram.sendMessage(
+            chadId,
+            MESSAGES.enableTwoFactor,
+            {parse_mode: 'HTML'}
+        );
+    }
+
+    public async sendVerifyChannel(chatId: string) {
+        await this.telegram.sendMessage(
+            chatId,
+            MESSAGES.verifyChannel,
+            {parse_mode: 'HTML'}
+        )
+    }
+
     private async connectTelegram(userId: string, chatId: string) {
         await this.prismaService.user.update({
             where: {
