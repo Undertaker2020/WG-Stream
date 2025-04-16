@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
+    "dev": "graphql-codegen --config graphql.config.ts && next dev --turbopack",
+    "build": "graphql-codegen --config graphql.config.ts && next build",
     "start": "next start",
-    "lint": "next lint",
-    "codegen": "graphql-codegen --config graphql.config.ts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@apollo/client": "^3.13.7",
@@ -30,6 +29,7 @@
     "@types/react-dom": "^19",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4.1.4",
-    "typescript": "^5"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
