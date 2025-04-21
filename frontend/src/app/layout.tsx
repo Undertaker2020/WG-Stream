@@ -2,11 +2,11 @@ import type {Metadata} from "next";
 
 import "../styles/globals.css";
 import {ApolloClientProvider} from "@/providers/ApolloClientProvider";
-import {Inter} from 'next/font/google';
+import {GeistSans} from 'geist/font/sans'
 import {NextIntlClientProvider} from "next-intl";
 import {getLocale, getMessages} from "next-intl/server";
+import {ThemeProvider} from "@/providers/ThemeProvider";
 
-const inter = Inter({subsets: ["latin"]})
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -22,10 +22,16 @@ export default async function RootLayout({
     const messages = await getMessages()
     return (
         <html lang={locale}>
-            <body className={inter.className}>
+        <body className={GeistSans.variable}>
             <ApolloClientProvider>
                 <NextIntlClientProvider messages={messages}>
-                    {children}
+                    <ThemeProvider
+                        attribute="class"
+                        defaultTheme="system"
+                        disableTransitionOnChange
+                    >
+                        {children}
+                    </ThemeProvider>
                 </NextIntlClientProvider>
             </ApolloClientProvider>
             </body>
