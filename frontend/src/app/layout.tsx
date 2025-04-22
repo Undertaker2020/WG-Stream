@@ -6,6 +6,7 @@ import {GeistSans} from 'geist/font/sans'
 import {NextIntlClientProvider} from "next-intl";
 import {getLocale, getMessages} from "next-intl/server";
 import {ThemeProvider} from "@/providers/ThemeProvider";
+import {ToastProvider} from "@/providers/ToastProvider";
 
 
 export const metadata: Metadata = {
@@ -21,15 +22,16 @@ export default async function RootLayout({
     const locale = await getLocale();
     const messages = await getMessages()
     return (
-        <html lang={locale}>
+        <html lang={locale} suppressHydrationWarning>
         <body className={GeistSans.variable}>
             <ApolloClientProvider>
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider
                         attribute="class"
-                        defaultTheme="system"
+                        defaultTheme="dark"
                         disableTransitionOnChange
                     >
+                        <ToastProvider/>
                         {children}
                     </ThemeProvider>
                 </NextIntlClientProvider>
