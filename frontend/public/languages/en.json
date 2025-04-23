@@ -18,6 +18,30 @@
       "heading": "Account verification",
       "successMessage": "Account verified",
       "errorMessage": "Verification error"
+    },
+    "login": {
+      "heading": "Login to WG-Stream",
+      "backButtonLabel": "Don't have an account? Sign up!",
+      "loginLabel": "Login",
+      "loginDescription": "Your username or email used during registration.",
+      "passwordLabel": "Password",
+      "passwordDescription": "The password you created during registration.",
+      "pinLabel": "6-digit code",
+      "pinDescription": "Enter the code from your authentication app.",
+      "forgotPassword": "Forgot password?",
+      "submitButton": "Login",
+      "successMessage": "You have successfully logged in.",
+      "errorMessage": "An error occurred while logging in."
+    },
+    "resetPassword": {
+      "heading": "Reset password",
+      "backButtonLabel": "Already have an account? Sign in",
+      "emailLabel": "Email",
+      "emailDescription": "The email you used during registration",
+      "submitButton": "Reset password",
+      "successAlertTitle": "Link sent",
+      "successAlertDescription": "We have sent a password reset link to your email. If you have enabled Telegram notifications, the link was sent there as well",
+      "errorMessage": "Password reset error"
     }
   }
 }

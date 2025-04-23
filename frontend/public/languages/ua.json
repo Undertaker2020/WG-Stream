@@ -18,6 +18,30 @@
       "heading": "Верифікація акаунта",
       "successMessage": "Акаунт верифіковано",
       "errorMessage": "Помилка при верефікації"
+    },
+    "login": {
+      "heading": "Увійти в WG-Stream",
+      "backButtonLabel": "Ще не маєте акаунта? Зареєструйтесь!",
+      "loginLabel": "Логін",
+      "loginDescription": "Ваше ім’я користувача або email, використані під час реєстрації.",
+      "passwordLabel": "Пароль",
+      "passwordDescription": "Пароль, який ви створили під час реєстрації.",
+      "pinLabel": "6-значний код",
+      "pinDescription": "Введіть код із вашого додатку автентифікації.",
+      "forgotPassword": "Забули пароль?",
+      "submitButton": "Увійти",
+      "successMessage": "Ви успішно увійшли в систему.",
+      "errorMessage": "Сталася помилка під час входу."
+    },
+    "resetPassword": {
+      "heading": "Скинути пароль",
+      "backButtonLabel": "Вже маєте акаунт? Увійти",
+      "emailLabel": "Електронна пошта",
+      "emailDescription": "Електронна пошта, яку ви вказали під час реєстрації",
+      "submitButton": "Скинути пароль",
+      "successAlertTitle": "Посилання надіслано",
+      "successAlertDescription": "Ми надіслали посилання для скидання пароля на вашу електронну пошту. Якщо у вас увімкнено сповіщення в Telegram, посилання також було надіслано туди",
+      "errorMessage": "Помилка скидання пароля"
     }
   }
 }
