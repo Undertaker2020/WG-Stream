@@ -24,6 +24,7 @@ export default async function RootLayout({
     return (
         <html lang={locale} suppressHydrationWarning>
         <body className={GeistSans.variable}>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
             <ApolloClientProvider>
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider
