@@ -1,47 +1,71 @@
 {
-  "auth": {
-    "register": {
-      "heading": "Реєстрація в WG-Stream",
-      "backButtonLabel": "Є обліковий запис? Увійти",
-      "usernameLabel": "Ім'я користувача",
-      "usernameDescription": "Під цим іменем вас знатимуть інші користувачі.",
-      "emailLabel": "Пошта",
-      "emailDescription": "Ми можемо використовувати вашу пошту для надсилання повідомлень щодо облікового запису.",
-      "passwordLabel": "Пароль",
-      "passwordDescription": "Пароль має містити не менше 8 символів.",
-      "submitButton": "Зареєструватися",
-      "successAlertTitle": "Перевірте свою пошту",
-      "successAlertDescription": "На вашу електронну адресу було надіслано лист для підтвердження. Якщо ви не бачите листа, перевірте папку «Спам».",
-      "errorMessage": "Помилка при створенні облікового запису"
-    },
-    "verify": {
-      "heading": "Верифікація акаунта",
-      "successMessage": "Акаунт верифіковано",
-      "errorMessage": "Помилка при верефікації"
-    },
-    "login": {
-      "heading": "Увійти в WG-Stream",
-      "backButtonLabel": "Ще не маєте акаунта? Зареєструйтесь!",
-      "loginLabel": "Логін",
-      "loginDescription": "Ваше ім’я користувача або email, використані під час реєстрації.",
-      "passwordLabel": "Пароль",
-      "passwordDescription": "Пароль, який ви створили під час реєстрації.",
-      "pinLabel": "6-значний код",
-      "pinDescription": "Введіть код із вашого додатку автентифікації.",
-      "forgotPassword": "Забули пароль?",
-      "submitButton": "Увійти",
-      "successMessage": "Ви успішно увійшли в систему.",
-      "errorMessage": "Сталася помилка під час входу."
-    },
-    "resetPassword": {
-      "heading": "Скинути пароль",
-      "backButtonLabel": "Вже маєте акаунт? Увійти",
-      "emailLabel": "Електронна пошта",
-      "emailDescription": "Електронна пошта, яку ви вказали під час реєстрації",
-      "submitButton": "Скинути пароль",
-      "successAlertTitle": "Посилання надіслано",
-      "successAlertDescription": "Ми надіслали посилання для скидання пароля на вашу електронну пошту. Якщо у вас увімкнено сповіщення в Telegram, посилання також було надіслано туди",
-      "errorMessage": "Помилка скидання пароля"
+    "auth": {
+        "register": {
+            "heading": "Реєстрація в WG-Stream",
+            "backButtonLabel": "Є обліковий запис? Увійти",
+            "usernameLabel": "Ім'я користувача",
+            "usernameDescription": "Під цим іменем вас знатимуть інші користувачі.",
+            "emailLabel": "Пошта",
+            "emailDescription": "Ми можемо використовувати вашу пошту для надсилання повідомлень щодо облікового запису.",
+            "passwordLabel": "Пароль",
+            "passwordDescription": "Пароль має містити не менше 8 символів.",
+            "submitButton": "Зареєструватися",
+            "successAlertTitle": "Перевірте свою пошту",
+            "successAlertDescription": "На вашу електронну адресу було надіслано лист для підтвердження. Якщо ви не бачите листа, перевірте папку «Спам».",
+            "errorMessage": "Помилка при створенні облікового запису"
+        },
+        "verify": {
+            "heading": "Верифікація акаунта",
+            "successMessage": "Акаунт верифіковано",
+            "errorMessage": "Помилка при верефікації"
+        },
+        "login": {
+            "heading": "Увійти в WG-Stream",
+            "backButtonLabel": "Ще не маєте акаунта? Зареєструйтесь!",
+            "loginLabel": "Логін",
+            "loginDescription": "Ваше ім’я користувача або email, використані під час реєстрації.",
+            "passwordLabel": "Пароль",
+            "passwordDescription": "Пароль, який ви створили під час реєстрації.",
+            "pinLabel": "6-значний код",
+            "pinDescription": "Введіть код із вашого додатку автентифікації.",
+            "forgotPassword": "Забули пароль?",
+            "submitButton": "Увійти",
+            "successMessage": "Ви успішно увійшли в систему.",
+            "errorMessage": "Сталася помилка під час входу."
+        },
+        "resetPassword": {
+            "heading": "Скинути пароль",
+            "backButtonLabel": "Вже маєте акаунт? Увійти",
+            "emailLabel": "Електронна пошта",
+            "emailDescription": "Електронна пошта, яку ви вказали під час реєстрації",
+            "submitButton": "Скинути пароль",
+            "successAlertTitle": "Посилання надіслано",
+            "successAlertDescription": "Ми надіслали посилання для скидання пароля на вашу електронну пошту. Якщо у вас увімкнено сповіщення в Telegram, посилання також було надіслано туди",
+            "errorMessage": "Помилка скидання пароля"
+        },
+        "newPassword": {
+            "heading": "Новий пароль",
+            "backButtonLabel": "Вже маєте акаунт? Увійти",
+            "passwordLabel": "Новий пароль",
+            "passwordDescription": "Пароль, який ви використовували під час реєстрації",
+            "passwordRepeatLabel": "Повторіть пароль",
+            "passwordRepeatDescription": "Повторіть новий пароль для підтвердження",
+            "submitButton": "Встановити новий пароль",
+            "successMessage": "Пароль успішно змінено",
+            "errorMessage": "Помилка при встановленні нового пароля"
+        },
+        "deactivate": {
+            "heading": "Деактивувати акаунт",
+            "backButtonLabel": "Перейти до панелі керування",
+            "emailLabel": "Електронна пошта",
+            "emailDescription": "Ваша електронна пошта, яку ви використовували під час реєстрації",
+            "passwordLabel": "Пароль",
+            "passwordDescription": "Пароль, який ви використовували під час реєстрації",
+            "pinLabel": "6-значний код",
+            "pinDescription": "Код було надіслано на вашу електронну пошту. Якщо у вас увімкнені сповіщення в Telegram, ми надіслали код і туди",
+            "submitButton": "Деактивувати",
+            "successMessage": "Ваш акаунт було успішно деактивовано",
+            "errorMessage": "Помилка під час деактивації"
+        }
     }
-  }
 }

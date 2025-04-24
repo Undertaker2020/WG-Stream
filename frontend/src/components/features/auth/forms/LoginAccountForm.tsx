@@ -14,9 +14,12 @@ import {useRouter} from "next/navigation";
 import {useState} from "react";
 import {InputOTP, InputOTPGroup, InputOTPSlot} from "@/components/ui/common/InputOTP";
 import Link from "next/link";
+import {useAuth} from "@/hooks/useAuth";
 
 export function LoginAccountForm() {
     const t = useTranslations('auth.login')
+
+    const {auth} = useAuth()
 
     const router = useRouter();
 
@@ -36,6 +39,7 @@ export function LoginAccountForm() {
                 setIsShowTwoFactor(true);
                 //TOTP
             } else {
+                auth()
                 toast.success(t('successMessage'));
                 router.push("/dashboard/settings");
             }
