@@ -1,4 +1,56 @@
 {
+    "layout": {
+        "header": {
+            "logo": {
+                "platform": "Платформа для стрімінгу"
+            },
+            "headerMenu": {
+                "login": "Увійти",
+                "register": "Зареєструватися",
+                "profileMenu": {
+                    "notifications": {
+                        "heading": "Сповіщення",
+                        "loading": "Завантаження...",
+                        "empty": "У вас немає сповіщень"
+                    },
+                    "successMessage": "Ви успішно вийшли з акаунта",
+                    "errorMessage": "Помилка при виході",
+                    "channel": "Мій канал",
+                    "dashboard": "Панель керування",
+                    "logout": "Вийти"
+                }
+            },
+            "search": {
+                "placeholder": "Пошук"
+            }
+        },
+        "sidebar": {
+            "header": {
+                "expand": "Розгорнути",
+                "collapse": "Згорнути",
+                "navigation": "Навігація"
+            },
+            "userNav": {
+                "home": "Головна",
+                "categories": "Категорії",
+                "streams": "Стріми",
+                "recommended": "Рекомендоване"
+            },
+            "recommended": {
+                "heading": "Рекомендації"
+            },
+            "dashboardNav": {
+                "settings": "Налаштування",
+                "streamSettings": "Налаштування стріму",
+                "keys": "Ключі стріму",
+                "chatSettings": "Налаштування чату",
+                "followers": "Підписники",
+                "sponsors": "Спонсори",
+                "premium": "Преміум-плани",
+                "transactions": "Транзакції"
+            }
+        }
+    },
     "auth": {
         "register": {
             "heading": "Реєстрація в WG-Stream",

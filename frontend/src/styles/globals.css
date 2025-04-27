@@ -70,6 +70,9 @@
     @apply overscroll-none bg-background text-foreground;
     height: 100vh;
   }
+  button {
+    cursor: pointer;
+  }
 }
 
 ::-webkit-scrollbar {
