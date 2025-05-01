@@ -5,6 +5,7 @@ import {cn} from "@/utils/tw-merge";
 import {SidebarHeader} from "@/components/layout/sidebar/SidebarHeader";
 import {usePathname} from "next/navigation";
 import {DashboardNav} from "@/components/layout/sidebar/DashboardNav";
+import {UserNav} from "@/components/layout/sidebar/UserNav";
 
 export function Sidebar() {
     const {isCollapsed} = useSidebar();
@@ -19,7 +20,7 @@ export function Sidebar() {
                 isCollapsed ? 'w-16' : 'w-64'
             )}>
             <SidebarHeader/>
-            {isDashboardPage ? <DashboardNav/> : 'User Nav'}
+            {isDashboardPage ? <DashboardNav/> : <UserNav/>}
         </aside>
     )
 
