@@ -120,6 +120,19 @@
             "errorMessage": "Помилка під час деактивації"
         }
     },
+    "dashboard": {
+        "settings": {
+            "header": {
+                "heading": "Налаштування",
+                "description": "Тут ви можете керувати своїми налаштуваннями",
+                "profile": "Профіль",
+                "account": "Акаунт",
+                "appearance": "Зовнішній вигляд",
+                "notifications": "Сповіщення",
+                "sessions": "Сеанси"
+            }
+        }
+    },
     "components": {
         "liveBadge": {
             "text": "В ЕТЕРІ"
