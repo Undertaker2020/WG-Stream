@@ -119,5 +119,24 @@
             "successMessage": "You have successfully deactivated your account",
             "errorMessage": "Deactivation error"
         }
+    },
+    "components": {
+        "liveBadge": {
+            "text": "LIVE"
+        },
+        "confirmModal": {
+            "cancel": "Cancel",
+            "continue": "Continue"
+        },
+        "copyButton": {
+            "successMessage": "Copied"
+        },
+        "dataTable": {
+            "notFound": "Nothing found"
+        },
+        "emptyState": {
+            "heading": "Nothing found",
+            "text": "We've searched every corner of our site, but unfortunately, nothing was found for your request. Maybe you could try something else?"
+        }
     }
 }
