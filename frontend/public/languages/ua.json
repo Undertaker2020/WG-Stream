@@ -130,6 +130,64 @@
                 "appearance": "Зовнішній вигляд",
                 "notifications": "Сповіщення",
                 "sessions": "Сеанси"
+            },
+            "profile": {
+                "header": {
+                    "heading": "Профіль",
+                    "description": "Налаштуйте свій профіль, змінивши аватар, особисту інформацію та посилання на соціальні мережі. Оновіть дані, щоб інші користувачі могли дізнатися про вас більше."
+                },
+                "avatar": {
+                    "heading": "Зображення профілю",
+                    "updateButton": "Оновити зображення профілю",
+                    "confirmModal": {
+                        "heading": "Видалити аватар",
+                        "message": "Ви впевнені, що хочете видалити зображення профілю? Цю дію не можна буде скасувати."
+                    },
+                    "info": "Підтримувані формати: JPG, JPEG, PNG, WEBP або GIF. Максимальний розмір: 10 МБ.",
+                    "successUpdateMessage": "Зображення профілю успішно оновлено.",
+                    "errorUpdateMessage": "Помилка під час оновлення зображення профілю.",
+                    "successRemoveMessage": "Зображення профілю успішно видалено.",
+                    "errorRemoveMessage": "Помилка під час видалення зображення профілю."
+                },
+                "info": {
+                    "heading": "Налаштування профілю",
+                    "usernameLabel": "Ім'я користувача",
+                    "usernamePlaceholder": "johndoe",
+                    "usernameDescription": "Інші користувачі будуть бачити вас саме так.",
+                    "displayNameLabel": "Ім’я для відображення",
+                    "displayNamePlaceholder": "John Doe",
+                    "displayNameDescription": "У відображуваному імені ви можете використовувати великі літери на свій розсуд.",
+                    "bioLabel": "Про себе",
+                    "bioPlaceholder": "Люблю програмувати",
+                    "bioDescription": "Інформація про себе має містити не більше 300 символів.",
+                    "successMessage": "Профіль успішно оновлено",
+                    "errorMessage": "Помилка під час оновлення профілю",
+                    "submitButton": "Зберегти зміни"
+                },
+                "socialLinks": {
+                    "createForm": {
+                        "heading": "Посилання на соціальні мережі",
+                        "titleLabel": "Назва посилання",
+                        "titlePlaceholder": "Youtube",
+                        "titleDescription": "Текст посилання",
+                        "urlLabel": "URL посилання",
+                        "urlPlaceholder": "https://github.com/Undertaker2020",
+                        "urlDescription": "Куди веде це посилання? Введіть повний URL, наприклад, https://github.com/Undertaker2020",
+                        "submitButton": "Додати",
+                        "successMessage": "Посилання успішно додано",
+                        "errorMessage": "Помилка під час додавання посилання"
+                    },
+                    "editForm": {
+                        "cancelButton": "Скасувати",
+                        "submitButton": "Зберегти",
+                        "successUpdateMessage": "Посилання успішно оновлено",
+                        "errorUpdateMessage": "Помилка під час оновлення посилання",
+                        "successRemoveMessage": "Посилання успішно видалено",
+                        "errorRemoveMessage": "Помилка під час видалення посилання"
+                    },
+                    "successReorderMessage": "Порядок посилань змінено",
+                    "errorReorderMessage": "Помилка під час зміни порядку посилань"
+                }
             }
         }
     },

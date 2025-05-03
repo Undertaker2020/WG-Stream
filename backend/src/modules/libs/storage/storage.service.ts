@@ -28,11 +28,13 @@ export class StorageService {
         this.bucket = this.configService.getOrThrow<string>('S3_BUCKET_NAME');
     }
     public async upload(buffer: Buffer, key: string, mimeType: string){
+        const cleanKey = this.normalizeKey(key);
         const command: PutObjectCommandInput = {
             Bucket: this.bucket,
-            Key: String(key),
+            Key: String(cleanKey),
             Body: buffer,
             ContentType: mimeType,
+            CacheControl: 'must-revalidate',
         }
 
         try {
@@ -43,9 +45,10 @@ export class StorageService {
     }
 
     public async remove(key: string){
+        const cleanKey = this.normalizeKey(key);
         const command: DeleteObjectCommandInput = {
             Bucket: this.bucket,
-            Key: String(key)
+            Key: String(cleanKey)
         }
 
         try {
@@ -53,5 +56,9 @@ export class StorageService {
         } catch (error){
             throw error;
         }
+    }
+
+    private normalizeKey(key: string) {
+        return key.replace(/^\/+/, '');
     }
 }

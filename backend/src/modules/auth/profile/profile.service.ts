@@ -22,13 +22,13 @@ export class ProfileService {
 
         const chunks: Buffer[] = []
 
-        for await (const chunk of file.createReadStream) {
-            chunks.push(chunk)
+        for await (const chunk of file.createReadStream()) {
+            chunks.push(chunk);
         }
 
         const buffer = Buffer.concat(chunks)
 
-        const fileName = `/channels/${user.username}.webp`
+        const fileName = `channels/${user.username}.webp`
 
         if (file.filename && file.filename.endsWith(".gif")) {
             const processedBuffer = await sharp(buffer, {animated: true})
@@ -59,7 +59,7 @@ export class ProfileService {
                 id: user.id
             },
             data: {
-                avatar: fileName,
+                avatar: `/${fileName}`,
             }
         })
 
