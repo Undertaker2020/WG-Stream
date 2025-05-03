@@ -36,7 +36,7 @@ export function ChannelItem({channel}: ChannelItemProps){
             asChild>
             <Link href={`/${channel.username}`} className='flex w-full items-center'>
                 <ChannelAvatar channel={channel} size='sm' isLive={channel.stream.isLive}/>
-                <h2 className='truncate pl-3 pr-2'>{channel.username}</h2>
+                <h2 className='truncate pl-3 pr-2 capitalize'>{channel.username}</h2>
                 {channel.isVerified && <ChannelVerified size='sm' />}
                 {channel.stream.isLive && (
                     <div className='absolute right-5'>

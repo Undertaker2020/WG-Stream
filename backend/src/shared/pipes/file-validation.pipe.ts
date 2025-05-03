@@ -21,7 +21,7 @@ export class FileValidationPipe implements PipeTransform {
         }
 
         const isFileSizeValid = await validateFileSize(
-            filename,
+            fileStream,
             10 * 1024 * 1024
         )
 

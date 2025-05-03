@@ -120,6 +120,77 @@
             "errorMessage": "Deactivation error"
         }
     },
+    "dashboard": {
+        "settings": {
+            "header": {
+                "heading": "Settings",
+                "description": "Here you can manage your settings",
+                "profile": "Profile",
+                "account": "Account",
+                "appearance": "Appearance",
+                "notifications": "Notifications",
+                "sessions": "Sessions"
+            },
+            "profile": {
+                "header": {
+                    "heading": "Profile",
+                    "description": "Customize your profile by changing your avatar, personal information, and social media links. Update your information so that other users can learn more about you."
+                },
+                "avatar": {
+                    "heading": "Profile Image",
+                    "updateButton": "Update Profile Image",
+                    "confirmModal": {
+                        "heading": "Remove Avatar",
+                        "message": "Are you sure you want to remove your profile image? This action cannot be undone."
+                    },
+                    "info": "Supported formats: JPG, JPEG, PNG, WEBP or GIF. Max size: 10 MB.",
+                    "successUpdateMessage": "Profile image updated successfully.",
+                    "errorUpdateMessage": "Error updating profile image.",
+                    "successRemoveMessage": "Profile image removed successfully.",
+                    "errorRemoveMessage": "Error removing profile image."
+                },
+                "info": {
+                    "heading": "Profile Settings",
+                    "usernameLabel": "Username",
+                    "usernamePlaceholder": "johndoe",
+                    "usernameDescription": "This is how other users will know you.",
+                    "displayNameLabel": "Display Name",
+                    "displayNamePlaceholder": "John Doe",
+                    "displayNameDescription": "You can use uppercase letters in your display name as you wish.",
+                    "bioLabel": "About Me",
+                    "bioPlaceholder": "I love programming",
+                    "bioDescription": "The information about yourself should contain no more than 300 characters.",
+                    "successMessage": "Profile successfully updated",
+                    "errorMessage": "Error updating profile",
+                    "submitButton": "Save Changes"
+                },
+                "socialLinks": {
+                    "createForm": {
+                        "heading": "Social Media Links",
+                        "titleLabel": "Link Title",
+                        "titlePlaceholder": "Youtube",
+                        "titleDescription": "Link text",
+                        "urlLabel": "Link URL",
+                        "urlPlaceholder": "https://github.com/Undertaker2020",
+                        "urlDescription": "Where does this link lead? Please enter the full URL, e.g., https://github.com/Undertaker2020",
+                        "submitButton": "Add",
+                        "successMessage": "Social media link successfully added",
+                        "errorMessage": "Error adding social media link"
+                    },
+                    "editForm": {
+                        "cancelButton": "Cancel",
+                        "submitButton": "Save",
+                        "successUpdateMessage": "Social media link successfully updated",
+                        "errorUpdateMessage": "Error updating social media link",
+                        "successRemoveMessage": "Social media link successfully removed",
+                        "errorRemoveMessage": "Error removing social media link"
+                    },
+                    "successReorderMessage": "Order of social media links changed",
+                    "errorReorderMessage": "Error changing order of social media links"
+                }
+            }
+        }
+    },
     "components": {
         "liveBadge": {
             "text": "LIVE"
