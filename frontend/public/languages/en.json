@@ -152,7 +152,7 @@
                 "info": {
                     "heading": "Profile Settings",
                     "usernameLabel": "Username",
-                    "usernamePlaceholder": "johndoe",
+                    "usernamePlaceholder": "john_doe",
                     "usernameDescription": "This is how other users will know you.",
                     "displayNameLabel": "Display Name",
                     "displayNamePlaceholder": "John Doe",
@@ -246,6 +246,27 @@
                         "message": "Are you sure you want to deactivate your account? Access can only be restored within 7 days."
                     },
                     "button": "Deactivate"
+                }
+            },
+            "appearance": {
+                "header": {
+                    "heading": "Appearance",
+                    "description": "Customize the look of the website interface to your liking. Choose a theme and language that make your experience more comfortable."
+                },
+                "theme": {
+                    "heading": "Change Theme",
+                    "description": "You can choose a dark or light theme for the website interface.",
+                    "successMessage": "The website theme has been successfully changed"
+                },
+                "language": {
+                    "heading": "Website Language",
+                    "description": "Select the language that will be used on the website.",
+                    "selectPlaceholder": "Select a language",
+                    "successMessage": "The website language has been successfully changed"
+                },
+                "color": {
+                    "heading": "Accent Color",
+                    "description": "Choose an accent color for the interface"
                 }
             }
         }

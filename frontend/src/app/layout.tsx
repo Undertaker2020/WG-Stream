@@ -1,12 +1,15 @@
 import type {Metadata} from "next";
 
-import "../styles/globals.css";
+import "@/styles/globals.css";
+import "@/styles/themes.css"
 import {ApolloClientProvider} from "@/providers/ApolloClientProvider";
 import {GeistSans} from 'geist/font/sans'
 import {NextIntlClientProvider} from "next-intl";
 import {getLocale, getMessages} from "next-intl/server";
 import {ThemeProvider} from "@/providers/ThemeProvider";
 import {ToastProvider} from "@/providers/ToastProvider";
+import {ColorSwitcher} from "@/components/ui/common/ColorSwitcher";
+import type {ReactNode} from "react";
 
 
 export const metadata: Metadata = {
@@ -16,7 +19,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
    children,
 }: Readonly<{
-    children: React.ReactNode;
+    children: ReactNode;
 }>) {
     const locale = await getLocale();
     const messages = await getMessages()
@@ -25,6 +28,7 @@ export default async function RootLayout({
         <body className={GeistSans.variable}>
         <link rel="icon" href="/favicon.ico" sizes="any" />
             <ApolloClientProvider>
+                <ColorSwitcher />
                 <NextIntlClientProvider messages={messages}>
                     <ThemeProvider
                         attribute="class"
