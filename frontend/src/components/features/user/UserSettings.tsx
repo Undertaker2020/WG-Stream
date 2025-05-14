@@ -3,6 +3,11 @@ import {useTranslations} from "next-intl";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "@/components/ui/common/Tabs";
 import {ChangeAvatarForm} from "@/components/features/user/profile/ChangeAvatarForm";
 import {ChangeInfoForm} from "@/components/features/user/profile/ChangeInfoForm";
+import {SocialLinksForm} from "@/components/features/user/profile/social-links-form/SocialLinksForm";
+import {ChangeEmailForm} from "@/components/features/user/account/ChangeEmailForm";
+import {ChangePasswordForm} from "@/components/features/user/account/ChangePasswordForm";
+import {DeactivateCard} from "@/components/features/user/account/DeactivateCard";
+import {WrapperTotp} from "@/components/features/user/account/totp/WrapperTotp";
 
 export function UserSettings() {
     const t = useTranslations('dashboard.settings')
@@ -40,9 +45,33 @@ export function UserSettings() {
                         />
                         <ChangeAvatarForm/>
                         <ChangeInfoForm/>
+                        <SocialLinksForm/>
                     </div>
                 </TabsContent>
-                <TabsContent value='account'></TabsContent>
+                <TabsContent value='account'>
+                    <div className='mt-5 space-y-6'>
+                        <Heading
+                            title={t('account.header.heading')}
+                            description={t('account.header.description')}
+                        />
+                        <ChangeEmailForm />
+                        <ChangePasswordForm />
+                        <Heading
+                            title={t('account.header.securityHeading')}
+                            description={t(
+                                'account.header.securityDescription'
+                            )}
+                        />
+                        <WrapperTotp />
+                        <Heading
+                            title={t('account.header.deactivationHeading')}
+                            description={t(
+                                'account.header.deactivationDescription'
+                            )}
+                        />
+                        <DeactivateCard />
+                    </div>
+                </TabsContent>
                 <TabsContent value='appearance'></TabsContent>
                 <TabsContent value='notifications'></TabsContent>
                 <TabsContent value='sessions'></TabsContent>
