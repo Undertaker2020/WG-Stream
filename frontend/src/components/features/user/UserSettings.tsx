@@ -11,6 +11,9 @@ import {WrapperTotp} from "@/components/features/user/account/totp/WrapperTotp";
 import {ChangeThemeForm} from "@/components/features/user/appearance/ChangeThemeForm";
 import {ChangeLanguageForm} from "@/components/features/user/appearance/ChangeLanguageForm";
 import {ChangeColorForm} from "@/components/features/user/appearance/ChangeColorForm";
+import {
+    ChangeNotificationsSettingsForm
+} from "@/components/features/user/notifications/ChangeNotificationsSettingsForm";
 
 export function UserSettings() {
     const t = useTranslations('dashboard.settings')
@@ -86,7 +89,15 @@ export function UserSettings() {
                         <ChangeColorForm />
                     </div>
                 </TabsContent>
-                <TabsContent value='notifications'></TabsContent>
+                <TabsContent value='notifications'>
+                    <div className='mt-5 space-y-6'>
+                        <Heading
+                            title={t('notifications.header.heading')}
+                            description={t('notifications.header.description')}
+                        />
+                        <ChangeNotificationsSettingsForm />
+                    </div>
+                </TabsContent>
                 <TabsContent value='sessions'></TabsContent>
             </Tabs>
         </div>

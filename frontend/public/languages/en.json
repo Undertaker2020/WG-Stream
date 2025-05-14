@@ -268,6 +268,49 @@
                     "heading": "Accent Color",
                     "description": "Choose an accent color for the interface"
                 }
+            },
+            "notifications": {
+                "header": {
+                    "heading": "Notifications",
+                    "description": "Configure how you want to receive notifications from WG-Stream. You will receive notifications about the start of streams on the channels you are subscribed to, as well as about new followers."
+                },
+                "siteNotifications": {
+                    "heading": "Site Notifications",
+                    "description": "If you turn off site notifications, you will not receive notifications about new subscribers to your channel and notifications about new streams."
+                },
+                "telegramNotifications": {
+                    "heading": "Telegram Notifications",
+                    "description": "If you enable notifications via Telegram, your WG-Stream account will be linked to your Telegram account, and you will receive messages about new subscriptions, new streams, password resets, and two-factor authentication codes."
+                },
+                "successMessage": "Notification settings have been successfully updated",
+                "errorMessage": "Error when updating notification settings"
+            },
+            "sessions": {
+                "header": {
+                    "heading": "Sessions",
+                    "description": "Sessions are devices that you are currently using or have used to access your WG-Stream account. Here you can see the active sessions right now."
+                },
+                "info": {
+                    "current": "Current session",
+                    "active": "Active sessions",
+                    "notFound": "No active sessions found"
+                },
+                "sessionItem": {
+                    "deleteButton": "Delete",
+                    "detailsButton": "Details",
+                    "confirmModal": {
+                        "heading": "Delete Session",
+                        "message": "Are you sure you want to delete this session? This action will result in the irreversible deletion of the session on this device and will terminate all active actions associated with it."
+                    },
+                    "successMessage": "Session deleted"
+                },
+                "sessionModal": {
+                    "heading": "Session Information",
+                    "device": "Device:",
+                    "location": "Location:",
+                    "ipAddress": "IP Address:",
+                    "createdAt": "Created At:"
+                }
             }
         }
     },
