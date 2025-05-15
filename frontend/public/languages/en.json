@@ -332,5 +332,23 @@
             "heading": "Nothing found",
             "text": "We've searched every corner of our site, but unfortunately, nothing was found for your request. Maybe you could try something else?"
         }
+    },
+    "utils": {
+        "formatDate": {
+            "months": {
+                "january": "january",
+                "february": "february",
+                "march": "march",
+                "april": "april",
+                "may": "may",
+                "june": "june",
+                "july": "july",
+                "august": "august",
+                "september": "september",
+                "october": "october",
+                "november": "november",
+                "december": "december"
+            }
+        }
     }
 }

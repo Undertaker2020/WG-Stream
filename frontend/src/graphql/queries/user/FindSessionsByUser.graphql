@@ -1,0 +1,19 @@
+query FindSessionsByUser {
+	findSessionByUser {
+		id
+		createdAt
+		metadata {
+			location {
+				country
+				city
+				latitude
+				longitude
+			}
+			device {
+				browser
+				os
+			}
+			ip
+		}
+	}
+}
