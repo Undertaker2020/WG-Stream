@@ -152,7 +152,7 @@
                 "info": {
                     "heading": "Profile Settings",
                     "usernameLabel": "Username",
-                    "usernamePlaceholder": "johndoe",
+                    "usernamePlaceholder": "john_doe",
                     "usernameDescription": "This is how other users will know you.",
                     "displayNameLabel": "Display Name",
                     "displayNamePlaceholder": "John Doe",
@@ -247,6 +247,70 @@
                     },
                     "button": "Deactivate"
                 }
+            },
+            "appearance": {
+                "header": {
+                    "heading": "Appearance",
+                    "description": "Customize the look of the website interface to your liking. Choose a theme and language that make your experience more comfortable."
+                },
+                "theme": {
+                    "heading": "Change Theme",
+                    "description": "You can choose a dark or light theme for the website interface.",
+                    "successMessage": "The website theme has been successfully changed"
+                },
+                "language": {
+                    "heading": "Website Language",
+                    "description": "Select the language that will be used on the website.",
+                    "selectPlaceholder": "Select a language",
+                    "successMessage": "The website language has been successfully changed"
+                },
+                "color": {
+                    "heading": "Accent Color",
+                    "description": "Choose an accent color for the interface"
+                }
+            },
+            "notifications": {
+                "header": {
+                    "heading": "Notifications",
+                    "description": "Configure how you want to receive notifications from WG-Stream. You will receive notifications about the start of streams on the channels you are subscribed to, as well as about new followers."
+                },
+                "siteNotifications": {
+                    "heading": "Site Notifications",
+                    "description": "If you turn off site notifications, you will not receive notifications about new subscribers to your channel and notifications about new streams."
+                },
+                "telegramNotifications": {
+                    "heading": "Telegram Notifications",
+                    "description": "If you enable notifications via Telegram, your WG-Stream account will be linked to your Telegram account, and you will receive messages about new subscriptions, new streams, password resets, and two-factor authentication codes."
+                },
+                "successMessage": "Notification settings have been successfully updated",
+                "errorMessage": "Error when updating notification settings"
+            },
+            "sessions": {
+                "header": {
+                    "heading": "Sessions",
+                    "description": "Sessions are devices that you are currently using or have used to access your WG-Stream account. Here you can see the active sessions right now."
+                },
+                "info": {
+                    "current": "Current session",
+                    "active": "Active sessions",
+                    "notFound": "No active sessions found"
+                },
+                "sessionItem": {
+                    "deleteButton": "Delete",
+                    "detailsButton": "Details",
+                    "confirmModal": {
+                        "heading": "Delete Session",
+                        "message": "Are you sure you want to delete this session? This action will result in the irreversible deletion of the session on this device and will terminate all active actions associated with it."
+                    },
+                    "successMessage": "Session deleted"
+                },
+                "sessionModal": {
+                    "heading": "Session Information",
+                    "device": "Device:",
+                    "location": "Location:",
+                    "ipAddress": "IP Address:",
+                    "createdAt": "Created At:"
+                }
             }
         }
     },
@@ -267,6 +331,24 @@
         "emptyState": {
             "heading": "Nothing found",
             "text": "We've searched every corner of our site, but unfortunately, nothing was found for your request. Maybe you could try something else?"
+        }
+    },
+    "utils": {
+        "formatDate": {
+            "months": {
+                "january": "january",
+                "february": "february",
+                "march": "march",
+                "april": "april",
+                "may": "may",
+                "june": "june",
+                "july": "july",
+                "august": "august",
+                "september": "september",
+                "october": "october",
+                "november": "november",
+                "december": "december"
+            }
         }
     }
 }
