@@ -460,6 +460,10 @@
             }
         }
     },
+    "home": {
+        "streamsHeading": "Channels You Might Like",
+        "categoriesHeading": "Categories You Might Like"
+    },
     "components": {
         "liveBadge": {
             "text": "LIVE"
