@@ -8,7 +8,7 @@ import {hash} from "argon2";
 const prisma = new PrismaClient({
     transactionOptions: {
         maxWait: 5000,
-        timeout: 10000,
+        timeout: 20000,
         isolationLevel: Prisma.TransactionIsolationLevel.Serializable
     }
 })
@@ -62,7 +62,7 @@ async function main() {
                             password: await hash('12345678'),
                             username,
                             displayName: username,
-                            avatar: `/channels/${username}.webp`,
+                            avatar: `/streams/${username}.webp`,
                             isEmailVerified: true,
                             socialLinks: {
                                 createMany: {
@@ -81,7 +81,10 @@ async function main() {
                                 }
                             },
                             notificationSettings: {
-                                create:{}
+                                create:{
+                                    siteNotifications: false,
+                                    telegramNotifications: false,
+                                }
                             }
                         }
                     })

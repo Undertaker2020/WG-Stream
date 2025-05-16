@@ -58,8 +58,10 @@ export class AccountService {
                     create: {
                         title: `Stream with ${username}`,
                     }
+                },
+                notificationSettings: {
+                    create: {}
                 }
-
             }
         })
 
