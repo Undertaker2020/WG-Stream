@@ -22,7 +22,7 @@ export class PlanResolver {
     }
 
     @Authorization()
-    @Mutation(() => Boolean, {name: "createSponsorshipPlane"})
+    @Mutation(() => Boolean, {name: "createSponsorshipPlan"})
     public async create(
         @Authorized() user: User,
         @Args('data') input: CreatePlanInput
@@ -31,7 +31,7 @@ export class PlanResolver {
     }
 
     @Authorization()
-    @Mutation(() => Boolean, {name: "removeSponsorshipPlane"})
+    @Mutation(() => Boolean, {name: "removeSponsorshipPlan"})
     public async remove(
         @Args('planId') planId: string,
     ) {

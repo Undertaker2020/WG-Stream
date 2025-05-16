@@ -153,7 +153,7 @@ type Mutation {
   clearSessionCookie: Boolean!
   createIngress(ingressType: Float!): Boolean!
   createSocialLink(data: SocialLinkInput!): Boolean!
-  createSponsorshipPlane(data: CreatePlanInput!): Boolean!
+  createSponsorshipPlan(data: CreatePlanInput!): Boolean!
   createUser(data: CreateUserInput!): Boolean!
   deactivateAccount(data: DeactivateAccountInput!): AuthModel!
   disableTotp: Boolean!
@@ -167,7 +167,7 @@ type Mutation {
   removeProfileAvatar: Boolean!
   removeSession(id: String!): Boolean!
   removeSocialLink(id: String!): Boolean!
-  removeSponsorshipPlane(planId: String!): Boolean!
+  removeSponsorshipPlan(planId: String!): Boolean!
   removeStreamThumbnail: Boolean!
   reorderSocialLink(list: [SocialLinkOrderInput!]!): Boolean!
   resetPassword(data: ResetPasswordInput!): Boolean!

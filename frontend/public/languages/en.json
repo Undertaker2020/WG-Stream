@@ -396,6 +396,68 @@
                 "actions": "Actions",
                 "viewChannel": "View channel"
             }
+        },
+        "sponsors": {
+            "header": {
+                "heading": "Sponsors",
+                "description": "Here is a list of all your sponsors."
+            },
+            "columns": {
+                "date": "Expiration Date",
+                "user": "User",
+                "plan": "Plan",
+                "actions": "Actions",
+                "viewChannel": "View Channel"
+            }
+        },
+        "plans": {
+            "header": {
+                "heading": "Premium Plans",
+                "description": "Here is the list of premium plans for your channel."
+            },
+            "alert": {
+                "heading": "Channel verification required",
+                "description": "To create premium plans, your channel must be verified. You only need 10 subscribers to get the checkmark and unlock access to this feature."
+            },
+            "createForm": {
+                "trigger": "Create Plan",
+                "heading": "Create Plan",
+                "titleLabel": "Title",
+                "titlePlaceholder": "Premium subscription for the channel",
+                "titleDescription": "Enter the name of your plan. This name will be displayed to your subscribers.",
+                "descriptionLabel": "Description",
+                "descriptionPlaceholder": "Describe what your plan includes",
+                "descriptionDescription": "Describe what your plan includes. This will help your subscribers understand the benefits of the subscription.",
+                "priceLabel": "Price",
+                "priceDescription": "Specify the price of your plan in currency. This is the amount users will pay for the subscription.",
+                "submitButton": "Create",
+                "successMessage": "Premium plan created",
+                "errorMessage": "Error while creating the plan"
+            },
+            "columns": {
+                "date": "Creation Date",
+                "title": "Title",
+                "price": "Price",
+                "actions": "Actions",
+                "remove": "Remove",
+                "successMessage": "Plan successfully removed",
+                "removeMessage": "Error while removing the plan"
+            }
+        },
+        "transactions": {
+            "header": {
+                "heading": "Transactions",
+                "description": "Here are the transactions related to channel sponsorship."
+            },
+            "columns": {
+                "date": "Creation Date",
+                "status": "Status",
+                "success": "Successful",
+                "pending": "Pending",
+                "failed": "Failed",
+                "expired": "Expired",
+                "amount": "Amount"
+            }
         }
     },
     "components": {
