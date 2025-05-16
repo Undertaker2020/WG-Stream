@@ -364,6 +364,38 @@
                 "successMessage": "Ingress created",
                 "errorMessage": "Error creating ingress"
             }
+        },
+        "chat": {
+            "header": {
+                "heading": "Chat Settings",
+                "description": "Here you can manage your chat settings."
+            },
+            "isChatEnabled": {
+                "heading": "Enable Chat",
+                "description": "If you enable chat, viewers will be able to send messages in the chat during your broadcast."
+            },
+            "isChatFollowersOnly": {
+                "heading": "Followers-Only Chat",
+                "description": "If you enable this setting, only your followers will be able to send messages in the chat."
+            },
+            "isChatPremiumFollowersOnly": {
+                "heading": "Premium Followers-Only Chat",
+                "description": "If you enable this setting, only premium followers will be able to send messages in the chat."
+            },
+            "successMessage": "Chat settings updated successfully",
+            "errorMessage": "Error updating chat settings"
+        },
+        "followers": {
+            "header": {
+                "heading": "Followers",
+                "description": "Here is a list of all your followers."
+            },
+            "columns": {
+                "date": "Date",
+                "user": "User",
+                "actions": "Actions",
+                "viewChannel": "View channel"
+            }
         }
     },
     "components": {
