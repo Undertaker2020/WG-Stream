@@ -460,6 +460,10 @@
             }
         }
     },
+    "home": {
+        "streamsHeading": "Канали, які можуть вам сподобатися",
+        "categoriesHeading": "Категорії, які можуть вам сподобатися"
+    },
     "components": {
         "liveBadge": {
             "text": "В ЕТЕРІ"
