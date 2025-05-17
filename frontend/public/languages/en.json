@@ -464,6 +464,16 @@
         "streamsHeading": "Channels You Might Like",
         "categoriesHeading": "Categories You Might Like"
     },
+    "categories": {
+        "heading": "Categories",
+        "overview": {
+            "heading": "Streams for this category"
+        }
+    },
+    "streams": {
+        "heading": "Streams",
+        "searchHeading": "Search by query"
+    },
     "components": {
         "liveBadge": {
             "text": "LIVE"

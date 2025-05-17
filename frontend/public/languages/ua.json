@@ -464,6 +464,16 @@
         "streamsHeading": "Канали, які можуть вам сподобатися",
         "categoriesHeading": "Категорії, які можуть вам сподобатися"
     },
+    "categories": {
+        "heading": "Категорії",
+        "overview": {
+            "heading": "Стріми в цій категорії"
+        }
+    },
+    "streams": {
+        "heading": "Стріми",
+        "searchHeading": "Пошук за запитом"
+    },
     "components": {
         "liveBadge": {
             "text": "В ЕТЕРІ"

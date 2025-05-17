@@ -39,10 +39,10 @@ export class StreamModel implements Stream {
     @Field(() => Date)
     public updatedAt: Date;
 
-    @Field(() => CategoryModel)
+    @Field(() => CategoryModel, { nullable: true })
     public category: CategoryModel;
 
-    @Field(() => String)
+    @Field(() => String, { nullable: true })
     public categoryId: string;
 
     @Field(() => Boolean)
