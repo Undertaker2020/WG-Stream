@@ -470,6 +470,10 @@
             "heading": "Streams for this category"
         }
     },
+    "streams": {
+        "heading": "Streams",
+        "searchHeading": "Search by query"
+    },
     "components": {
         "liveBadge": {
             "text": "LIVE"
