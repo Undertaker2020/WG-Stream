@@ -474,6 +474,96 @@
         "heading": "Стріми",
         "searchHeading": "Пошук за запитом"
     },
+    "stream": {
+        "video": {
+            "offline": "офлайн",
+            "loading": "З'єднання...",
+            "player": {
+                "volume": "Гучність",
+                "fullscreen": {
+                    "open": "На весь екран",
+                    "exit": "Вийти з повноекранного режиму"
+                }
+            }
+        },
+        "info": {
+            "viewers": "глядачів",
+            "offline": "Офлайн"
+        },
+        "actions": {
+            "follow": {
+                "confirmUnfollowHeading": "Відписатися",
+                "confirmUnfollowMessage": "Ви більше не отримуватимете сповіщення з цього каналу, і він зникне з вашого списку підписок.",
+                "unfollowButton": "Відписатися",
+                "followButton": "Підписатися",
+                "successFollowMessage": "Ви успішно підписалися",
+                "errorFollowMessage": "Помилка під час підписки",
+                "successUnfollowMessage": "Ви успішно відписалися",
+                "errorUnfollowMessage": "Помилка під час відписки"
+            },
+            "support": {
+                "alreadySponsor": "Ви вже є спонсором",
+                "supportAuthor": "Підтримати автора",
+                "perMonth": "на місяць",
+                "choose": "Обрати",
+                "errorMessage": "Помилка при створенні платежу"
+            },
+            "share": {
+                "heading": "Поділитися"
+            }
+        },
+        "aboutChannel": {
+            "heading": "Про канал",
+            "followersCount": "підписників",
+            "noDescription": "Опис не надано."
+        },
+        "sponsors": {
+            "heading": "Спонсори каналу"
+        },
+        "chat": {
+            "heading": "Чат",
+            "unavailable": "Чат недоступний",
+            "unavailableMessage": "Чат недоступний, поки на каналі немає трансляції. Поверніться пізніше!",
+            "loading": "З'єднання...",
+            "info": {
+                "authRequired": "Потрібна авторизація",
+                "chatDisabled": "Чат вимкнено",
+                "premiumFollowersOnly": "Лише для спонсорів",
+                "followersOnly": "Лише для підписників"
+            },
+            "sendMessage": {
+                "placeholder": "Надіслати повідомлення",
+                "emojiPlaceholder": "Пошук",
+                "errorMessage": "Помилка під час надсилання повідомлення."
+            }
+        },
+        "settings": {
+            "heading": "Налаштування трансляції",
+            "thumbnail": {
+                "updateButton": "Оновити зображення",
+                "confirmModal": {
+                    "heading": "Видалення обкладинки трансляції",
+                    "message": "Ви впевнені, що хочете видалити обкладинку трансляції? Цю дію не можна скасувати."
+                },
+                "info": "Підтримувані формати: JPG, JPEG, PNG або GIF. Максимальний розмір: 10 МБ.",
+                "successUpdateMessage": "Зображення трансляції оновлено успішно",
+                "errorUpdateMessage": "Помилка при оновленні зображення трансляції",
+                "successRemoveMessage": "Зображення трансляції успішно видалено",
+                "errorRemoveMessage": "Помилка при видаленні зображення трансляції"
+            },
+            "info": {
+                "titleLabel": "Назва",
+                "titlePlaceholder": "Стрім GTA 5",
+                "titleDescription": "Введіть назву вашої трансляції. Вона має бути короткою та запам’ятовуваною.",
+                "categoryLabel": "Категорія",
+                "categoryPlaceholder": "Оберіть категорію",
+                "categoryDescription": "Оберіть категорію, до якої належить ваш контент. Це допоможе глядачам легше знайти вашу трансляцію.",
+                "submitButton": "Зберегти зміни",
+                "successMessage": "Налаштування трансляції успішно оновлено",
+                "errorMessage": "Помилка при оновленні налаштувань трансляції"
+            }
+        }
+    },
     "components": {
         "liveBadge": {
             "text": "В ЕТЕРІ"
