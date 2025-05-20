@@ -108,7 +108,7 @@ export class StreamService {
 
         const chunks: Buffer[] = []
 
-        for await (const chunk of file.createReadStream) {
+        for await (const chunk of file.createReadStream()) {
             chunks.push(chunk)
         }
 
