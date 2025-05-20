@@ -1,6 +1,6 @@
-export function convertPrice(price: number) {
-	return price.toLocaleString('ua-UA', {
+export function convertPrice(price: number): string {
+	return price.toLocaleString('en-US', {
 		style: 'currency',
-		currency: 'UAH'
-	})
+		currency: 'USD',
+	});
 }
