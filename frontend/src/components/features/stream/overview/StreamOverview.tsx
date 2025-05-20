@@ -10,6 +10,7 @@ import { AboutChannel, AboutChannelSkeleton } from './info/AboutChannel'
 import { ChannelSponsors } from './info/ChannelSponsors'
 import { StreamInfo, StreamInfoSkeleton } from './info/StreamInfo'
 import { StreamVideo, StreamVideoSkeleton } from './player/StreamVideo'
+import {LIVEKIT_WS_URL} from "@/libs/constants/url.constants";
 
 interface StreamOverviewProps {
 	channel: FindChannelByUsernameQuery['findChannelByUsername']
@@ -25,7 +26,7 @@ export function StreamOverview({ channel }: StreamOverviewProps) {
 	return (
 		<LiveKitRoom
 			token={token}
-			serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_WS_URL}
+			serverUrl={LIVEKIT_WS_URL}
 			className='mx-auto grid max-w-screen-xl grid-cols-1 gap-6 lg:grid-cols-7'
 		>
 			<div className='order-1 col-span-1 flex flex-col lg:col-span-5'>
