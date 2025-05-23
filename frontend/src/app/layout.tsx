@@ -8,7 +8,7 @@ import {NextIntlClientProvider} from "next-intl";
 import {getLocale, getMessages} from "next-intl/server";
 import {ThemeProvider} from "@/providers/ThemeProvider";
 import {ToastProvider} from "@/providers/ToastProvider";
-import {ColorSwitcher} from "@/components/ui/common/ColorSwitcher";
+import {ColorSwitcher} from "@/components/ui/elements/ColorSwitcher";
 import type {ReactNode} from "react";
 
 

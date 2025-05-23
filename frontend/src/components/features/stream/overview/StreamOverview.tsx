@@ -1,16 +1,18 @@
 'use client'
 
-import { LiveKitRoom } from '@livekit/components-react'
+import {LiveKitRoom} from '@livekit/components-react'
 
-import type { FindChannelByUsernameQuery } from '@/graphql/generated/output'
+import type {FindChannelByUsernameQuery} from '@/graphql/generated/output'
 
-import { useStreamToken } from '@/hooks/useStreamToken'
+import {useStreamToken} from '@/hooks/useStreamToken'
 
-import { AboutChannel, AboutChannelSkeleton } from './info/AboutChannel'
-import { ChannelSponsors } from './info/ChannelSponsors'
-import { StreamInfo, StreamInfoSkeleton } from './info/StreamInfo'
-import { StreamVideo, StreamVideoSkeleton } from './player/StreamVideo'
+import {AboutChannel, AboutChannelSkeleton} from './info/AboutChannel'
+import {ChannelSponsors} from './info/ChannelSponsors'
+import {StreamInfo, StreamInfoSkeleton} from './info/StreamInfo'
+import {StreamVideo, StreamVideoSkeleton} from './player/StreamVideo'
 import {LIVEKIT_WS_URL} from "@/libs/constants/url.constants";
+import {LiveChat, LiveChatSkeleton} from '@/components/features/chat/live/LiveChat'
+
 
 interface StreamOverviewProps {
 	channel: FindChannelByUsernameQuery['findChannelByUsername']
@@ -35,6 +37,16 @@ export function StreamOverview({ channel }: StreamOverviewProps) {
 				<AboutChannel channel={channel} />
 				<ChannelSponsors channel={channel} />
 			</div>
+			<div className='order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2'>
+				<LiveChat
+					channel={channel}
+					isChatEnabled={channel.stream.isChatEnabled}
+					isChatFollowersOnly={channel.stream.isChatFollowersOnly}
+					isChatPremiumFollowersOnly={
+						channel.stream.isChatPremiumFollowersOnly
+					}
+				/>
+			</div>
 		</LiveKitRoom>
 	)
 }
@@ -46,6 +58,9 @@ export function StreamOverviewSkeleton() {
 				<StreamVideoSkeleton />
 				<StreamInfoSkeleton />
 				<AboutChannelSkeleton />
+			</div>
+			<div className='order-2 col-span-1 flex h-80 flex-col space-y-6 lg:col-span-2'>
+				<LiveChatSkeleton/>
 			</div>
 		</div>
 	)
