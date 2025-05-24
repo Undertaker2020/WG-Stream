@@ -600,5 +600,22 @@
                 "december": "december"
             }
         }
+    },
+    "success": {
+        "heading": "Payment Successful!",
+        "details": {
+            "heading": "Sponsorship Details:",
+            "price": "Price:",
+            "duration": "Duration:",
+            "channel": "Channel:"
+        },
+        "congratulations": "You now have access to the channel's premium content!",
+        "backToHome": "Back to Home",
+        "backToChannel": "Back to Channel",
+        "support": "If you have any questions, contact our support."
+    },
+    "notFound": {
+        "description": "Oops, something went wrong.",
+        "backToHome": "Back to Home"
     }
 }
