@@ -21,6 +21,8 @@ export function StreamInfo({channel}: StreamInfoProps) {
 
     const participantCount = participants.length - 1
 
+    const isLive = participants.some(p => p.identity === channel.id);
+
     return (
         <div className='space-y-5'>
             <h1 className='text-xl font-semibold'>
@@ -32,7 +34,7 @@ export function StreamInfo({channel}: StreamInfoProps) {
                 <div className='flex items-center gap-x-3 px-1'>
                     <ChannelAvatar
                         channel={channel}
-                        isLive={channel.stream.isLive}
+                        isLive={isLive}
                         size='lg'
                     />
                     <div className='space-y-1'>
@@ -40,7 +42,7 @@ export function StreamInfo({channel}: StreamInfoProps) {
                             {channel.displayName}
                             {channel.isVerified && <ChannelVerified/>}
                         </h2>
-                        {channel.stream.isLive ? (
+                        {isLive ? (
                             <div className='flex items-center gap-x-1 text-xs font-semibold text-rose-500'>
                                 <User className='size-4'/>
                                 {participantCount} {t('viewers')}
