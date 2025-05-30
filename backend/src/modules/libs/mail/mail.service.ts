@@ -54,12 +54,12 @@ export class MailService {
     public async sendVerifyChannel(email: string) {
         const html = await render(VerifyChannelTemplate())
 
-        return this.sendMail(email, 'SYour channel has been verified', html)
+        return this.sendMail(email, 'Your channel has been verified', html)
     }
 
     private sendMail(email: string, subject: string, html: string) {
         return this.mailerService.sendMail({
-            from: 'WG-Stream',
+            from: this.configService.getOrThrow<string>('MAIL_FROM'),
             to: email,
             subject,
             html
