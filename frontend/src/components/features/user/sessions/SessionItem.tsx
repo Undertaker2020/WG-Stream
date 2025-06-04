@@ -13,7 +13,7 @@ import {
 
 import {getBrowserIcon} from '@/utils/get-browser-icon'
 
-import {SessionModal} from './SessionModal'
+import {SessionModal} from '@/components/features/user/sessions/SessionModal'
 import {GOOGLE_MAP_API} from "@/libs/constants/url.constants";
 import {useJsApiLoader} from '@react-google-maps/api'
 
