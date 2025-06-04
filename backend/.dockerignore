@@ -1,0 +1,25 @@
+# Не надсилати у контекст локальні залежності
+node_modules
+
+# Git-метадані
+.git
+.gitignore
+
+# Локальні збірки (якщо у вас є dist, build тощо)
+dist
+build
+
+# Логи та тимчасові файли
+npm-debug.log*
+yarn-error.log*
+*.log
+tmp
+
+# Конфігурації, які містять секрети
+.env
+.env.local
+.DS_Store
+
+# IDE-файли, які не потрібні в контейнері
+.vscode
+.idea
