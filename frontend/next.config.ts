@@ -8,8 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'http',
-        hostname: 'wg-stream.s3-website.eu-north-1.amazonaws.com',
+        protocol: 'https',
+        hostname: 'wg-stream.s3.eu-north-1.amazonaws.com',
         port: '',
         pathname: '/**',
       },
