@@ -53,11 +53,11 @@ export function EnableTwoFactorTemplate({domain}: EnableTwoFactorTemplateProps) 
                         <Text className="text-gray-600">
                             If you have any questions, feel free to contact our support team at{' '}
                             <Link
-                                href="mailto:help@wg-stream.com"
+                                href="mailto:support@wg-stream.com"
                                 className="text-[#18b9ae] underline"
                             >
-                                help@wg-stream.com
-                            </Link>.
+                                support@wg-stream.com
+                            </Link>
                         </Text>
                     </Section>
                 </Body>

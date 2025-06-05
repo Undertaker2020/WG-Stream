@@ -320,7 +320,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "POSTGRES_URI",
-        "value": "postgresql://root:123456@localhost:5433/wg-stream"
+        "value": "postgresql://IlyaAdmin:7jdfCATLOVER3565@51.21.245.31:5432/wg-stream"
       }
     }
   },

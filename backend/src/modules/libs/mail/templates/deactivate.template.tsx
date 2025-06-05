@@ -56,11 +56,11 @@ export function DeactivateTemplate({token, metadata}: DeactivateTemplateProps){
                     <Text className='text-gray-600'>
                         If you have any questions or encounter any issues, feel free to contact our support team at{' '}
                         <Link
-                            href="mailto:gashimovilya2018@gmail.com"
+                            href="mailto:support@wg-stream.com"
                             className="text-[#18b9ae] underline"
                         >
-                            gashimovilya2018@gmail.com
-                        </Link>.
+                            support@wg-stream.com
+                        </Link>
                     </Text>
                 </Section>
             </Body>

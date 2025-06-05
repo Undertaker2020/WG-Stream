@@ -212,7 +212,7 @@ model SponsorshipPlan {
   stripePlanId    String @map("stripe_plan_id")
 
   channel   User?   @relation(fields: [channelId], references: [id], onDelete: Cascade)
-  channelId String? @map("user_id")
+  channelId String? @map("channel_id")
 
   createdAt               DateTime                  @default(now()) @map("created_at")
   updatedAt               DateTime                  @updatedAt @map("updated_at")
