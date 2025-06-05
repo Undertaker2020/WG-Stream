@@ -42,10 +42,10 @@ export function VerifyChannelTemplate() {
                         <Text className="text-gray-600">
                             If you have any questions, feel free to contact us at{' '}
                             <Link
-                                href="mailto:help@wg-stream.com"
+                                href="mailto:support@wg-stream.com"
                                 className="text-[#18b9ae] underline"
                             >
-                                help@wg-stream.com
+                                support@wg-stream.com
                             </Link>.
                         </Text>
                     </Section>

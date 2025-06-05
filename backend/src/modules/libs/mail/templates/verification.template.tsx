@@ -33,10 +33,12 @@ export function VerificationTemplate({domain, token}: VerificationTemplateProps)
                         <Text className='text-gray-600'>
                             If you have any questions or encounter issues on the site,
                             please contact customer support at the address{' '}
-                            <Link href='mailto:gashimovilya2018@gmail.com'
-                                  className='text-[#18B9AE] underline'>
-                                gashimovilya2018@gmail.com
-                            </Link>
+                            <Link
+                                href="mailto:support@wg-stream.com"
+                                className="text-[#18b9ae] underline"
+                            >
+                                support@wg-stream.com
+                            </Link>.
                         </Text>
                     </Section>
                 </Body>
