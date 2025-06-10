@@ -27,9 +27,9 @@ export function ProfileMenu() {
     const [clear] = useClearSessionCookieMutation();
     const [logout] = useLogoutUserMutation({
         onCompleted(){
-            clear()
             exit()
             toast.success(t('successMessage'))
+            clear()
             router.push('/account/login')
         },
         onError(){
