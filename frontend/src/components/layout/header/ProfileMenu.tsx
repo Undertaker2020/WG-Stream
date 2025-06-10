@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/common/DropdownMenu";
 import {ChannelAvatar} from "@/components/ui/elements/ChannelAvatar";
 import Link from "next/link";
-import {useClearSessionCookieMutation, useLogoutUserMutation} from "@/graphql/generated/output";
+import {useLogoutUserMutation} from "@/graphql/generated/output";
 import {toast} from "sonner";
 import {Notifications} from "@/components/layout/header/notifications/Notifications";
 
@@ -24,10 +24,8 @@ export function ProfileMenu() {
 
     const { exit } = useAuth();
     const {user, isLoadingProfile} = useCurrent()
-    const [clear] = useClearSessionCookieMutation();
     const [logout] = useLogoutUserMutation({
         onCompleted(){
-            clear()
             exit()
             toast.success(t('successMessage'))
             router.push('/account/login')
