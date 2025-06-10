@@ -17,6 +17,8 @@ import {destroySession, saveSession} from "@/src/shared/utils/session.util";
 import {VerificationService} from "@/src/modules/auth/verification/verification.service";
 import {TOTP} from "otpauth";
 import {UserModel} from "@/src/modules/auth/account/models/user.model";
+import {parseBoolean} from "@/src/shared/utils/parse-boolean.util";
+import {ms, StringValue} from "@/src/shared/utils/ms.util";
 
 @Injectable()
 export class SessionService {
@@ -128,10 +130,19 @@ export class SessionService {
     }
 
     public async clearSession(req: Request) {
-        req.res!.clearCookie(
-            this.configService.getOrThrow<string>('SESSION_NAME')
-        )
-        return true
+        req.res!.clearCookie(this.configService.getOrThrow<string>('SESSION_NAME'), {
+            domain: this.configService.getOrThrow<string>('SESSION_DOMAIN'),
+            maxAge: ms(this.configService.getOrThrow<StringValue>('SESSION_MAX_AGE')),
+            httpOnly: parseBoolean(
+                this.configService.getOrThrow<string>('SESSION_HTTP_ONLY')
+            ),
+            secure: parseBoolean(
+                this.configService.getOrThrow<string>('SESSION_SECURE')
+            ),
+            sameSite: 'lax'
+        });
+
+        return true;
     }
 
     public async removeSession(req: Request, id: string) {
